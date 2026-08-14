@@ -13,7 +13,7 @@ const testimonials = [
     name: "Chị Minh Anh",
     role: "Khách du lịch gia đình",
     avatar:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80",
+      "https://images.unsplash.com/photo-1513097633097-329a3a64e0d4?w=800&q=80",
     quote:
       "Xe đời mới, tài xế thân thiện, đưa gia đình mình đi Đà Lạt rất an toàn và thoải mái. Chắc chắn sẽ quay lại.",
   },
@@ -21,7 +21,7 @@ const testimonials = [
     name: "Anh Quốc Bảo",
     role: "Trưởng phòng nhân sự, công ty ABC",
     avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+      "https://images.unsplash.com/photo-1701980889802-55ff39e2e973?w=800&q=80",
     quote:
       "Công ty mình thuê xe 29 chỗ cho chuyến team building, giá minh bạch, hỗ trợ nhiệt tình từ lúc đặt đến khi kết thúc.",
   },
@@ -29,7 +29,7 @@ const testimonials = [
     name: "Chị Thu Hà",
     role: "Tổ chức sự kiện cưới",
     avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&q=80",
+      "https://images.unsplash.com/photo-1758600587833-c07c5bda5c70?w=800&q=80",
     quote:
       "Đặt xe 16 chỗ đưa đón khách mời đám cưới rất đúng giờ, xe sạch đẹp, tài xế chuyên nghiệp.",
   },
