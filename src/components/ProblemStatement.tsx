@@ -30,16 +30,16 @@ const problems = [
 
 export default function ProblemStatement() {
   return (
-    <section className="relative bg-zinc-950 py-20 sm:py-28">
+    <section className="relative bg-slate-50 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-wider text-cyan-400">
+          <span className="text-sm font-semibold uppercase tracking-wider text-amber-600">
             Vấn đề thường gặp
           </span>
-          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+          <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
             Thuê xe du lịch chưa bao giờ dễ dàng?
           </h2>
-          <p className="mt-4 text-zinc-400">
+          <p className="mt-4 text-slate-500">
             Rất nhiều khách hàng gặp phải những rắc rối này trước khi tìm đến
             chúng tôi.
           </p>
@@ -50,13 +50,13 @@ export default function ProblemStatement() {
             <Reveal
               key={item.title}
               delay={index * 100}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6"
+              className="rounded-2xl border border-slate-200 bg-white p-6"
             >
-              <div className="flex size-12 items-center justify-center rounded-xl bg-cyan-500/10">
-                <item.icon className="size-6 text-cyan-400" />
+              <div className="flex size-12 items-center justify-center rounded-xl bg-amber-50">
+                <item.icon className="size-6 text-amber-600" />
               </div>
-              <h3 className="mt-4 font-semibold text-white">{item.title}</h3>
-              <p className="mt-2 text-sm text-zinc-400">{item.description}</p>
+              <h3 className="mt-4 font-semibold text-slate-900">{item.title}</h3>
+              <p className="mt-2 text-sm text-slate-500">{item.description}</p>
             </Reveal>
           ))}
         </div>

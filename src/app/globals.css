@@ -2,8 +2,8 @@
 @plugin "tailwindcss-animate";
 
 :root {
-  --background: #09090b;
-  --foreground: #fafafa;
+  --background: #ffffff;
+  --foreground: #0f172a;
 }
 
 @theme inline {
@@ -14,7 +14,7 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
@@ -23,6 +23,6 @@ body {
 }
 
 ::selection {
-  background: #14b8a6;
-  color: #fff;
+  background: #f59e0b;
+  color: #0f172a;
 }

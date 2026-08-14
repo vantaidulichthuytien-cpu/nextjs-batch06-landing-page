@@ -46,16 +46,16 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="bang-gia" className="relative bg-zinc-950 py-20 sm:py-28">
+    <section id="bang-gia" className="relative bg-slate-50 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-wider text-teal-400">
+          <span className="text-sm font-semibold uppercase tracking-wider text-amber-600">
             Bảng giá
           </span>
-          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+          <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
             Giá thuê minh bạch, không phát sinh
           </h2>
-          <p className="mt-4 text-zinc-400">
+          <p className="mt-4 text-slate-500">
             Giá tham khảo, tùy chỉnh theo lộ trình và thời gian thuê thực tế.
           </p>
         </Reveal>
@@ -67,31 +67,31 @@ export default function Pricing() {
               delay={index * 100}
               className={`relative rounded-3xl border p-8 ${
                 plan.highlight
-                  ? "border-teal-400/40 bg-gradient-to-b from-teal-500/10 to-cyan-500/5 shadow-2xl shadow-teal-950/50"
-                  : "border-white/10 bg-white/5"
+                  ? "border-amber-400 bg-white shadow-2xl shadow-amber-500/10"
+                  : "border-slate-200 bg-white"
               }`}
             >
               {plan.highlight && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 px-4 py-1 text-xs font-semibold text-white">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-amber-500 px-4 py-1 text-xs font-semibold text-slate-900">
                   Phổ biến nhất
                 </span>
               )}
-              <h3 className="text-lg font-semibold text-white">{plan.name}</h3>
-              <p className="mt-2 text-sm text-zinc-400">{plan.description}</p>
+              <h3 className="text-lg font-semibold text-slate-900">{plan.name}</h3>
+              <p className="mt-2 text-sm text-slate-500">{plan.description}</p>
               <p className="mt-6 flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold text-white">
+                <span className="text-4xl font-extrabold text-slate-900">
                   {plan.price}
                 </span>
-                <span className="text-sm text-zinc-400">{plan.unit}</span>
+                <span className="text-sm text-slate-500">{plan.unit}</span>
               </p>
 
               <ul className="mt-8 space-y-3">
                 {plan.features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex items-start gap-3 text-sm text-zinc-300"
+                    className="flex items-start gap-3 text-sm text-slate-600"
                   >
-                    <Check className="mt-0.5 size-4 shrink-0 text-cyan-400" />
+                    <Check className="mt-0.5 size-4 shrink-0 text-amber-500" />
                     {feature}
                   </li>
                 ))}
@@ -99,10 +99,10 @@ export default function Pricing() {
 
               <a
                 href="#lien-he"
-                className={`mt-8 block rounded-full px-5 py-3 text-center text-sm font-semibold transition-transform hover:scale-105 ${
+                className={`mt-8 block rounded-lg px-5 py-3 text-center text-sm font-semibold transition-transform hover:scale-105 ${
                   plan.highlight
-                    ? "bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-lg shadow-teal-500/30"
-                    : "border border-white/15 text-white hover:bg-white/5"
+                    ? "bg-amber-500 text-slate-900 shadow-lg shadow-amber-500/30 hover:bg-amber-400"
+                    : "border border-slate-300 text-slate-900 hover:bg-slate-50"
                 }`}
               >
                 Nhận báo giá

@@ -1,10 +1,19 @@
 import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
+import {
+  SITE_NAME,
+  SITE_PHONE,
+  SITE_PHONE_DISPLAY,
+  SITE_EMAIL,
+  SITE_ADDRESS,
+} from "@/lib/site";
 
 const footerLinks: Record<string, string[]> = {
   "Dịch vụ": ["Xe 4 - 7 chỗ", "Xe 16 chỗ", "Xe 29 chỗ", "Xe 45 chỗ", "Thuê xe theo tháng"],
   "Công ty": ["Về chúng tôi", "Tuyển dụng", "Điều khoản dịch vụ", "Chính sách bảo mật"],
 };
+
+const paymentMethods = ["Tiền mặt", "Chuyển khoản", "Momo", "ZaloPay"];
 
 const socialIcons = [
   {
@@ -23,18 +32,18 @@ const socialIcons = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/10 bg-zinc-950 pt-16 pb-8">
+    <footer className="relative border-t border-white/10 bg-slate-900 pt-16 pb-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Image
               src="/logo.png"
-              alt="Nhà Xe Thủy Tiên"
+              alt={SITE_NAME}
               width={220}
               height={116}
               className="h-16 w-auto"
             />
-            <p className="mt-4 text-sm text-zinc-400">
+            <p className="mt-4 text-sm text-slate-400">
               Dịch vụ cho thuê xe du lịch từ 4 đến 45 chỗ, đồng hành cùng mọi
               hành trình của bạn.
             </p>
@@ -44,7 +53,7 @@ export default function Footer() {
                   key={icon.label}
                   href="#"
                   aria-label={icon.label}
-                  className="flex size-9 items-center justify-center rounded-full border border-white/10 text-zinc-400 transition-colors hover:border-teal-400/40 hover:text-white"
+                  className="flex size-9 items-center justify-center rounded-full border border-white/10 text-slate-400 transition-colors hover:border-amber-400/40 hover:text-white"
                 >
                   <svg viewBox="0 0 24 24" className="size-4 fill-current">
                     <path d={icon.path} />
@@ -62,7 +71,7 @@ export default function Footer() {
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-sm text-zinc-400 transition-colors hover:text-white"
+                      className="text-sm text-slate-400 transition-colors hover:text-white"
                     >
                       {link}
                     </a>
@@ -74,26 +83,46 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold text-white">Liên hệ</h3>
-            <ul className="mt-4 space-y-3 text-sm text-zinc-400">
+            <ul className="mt-4 space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-teal-400" />
-                1023/34 Khu Phố 13, Phường Tam Hiệp, TP. Đồng Nai
+                <MapPin className="mt-0.5 size-4 shrink-0 text-amber-400" />
+                {SITE_ADDRESS}
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="size-4 shrink-0 text-teal-400" />
-                0908 049 489
+                <Phone className="size-4 shrink-0 text-amber-400" />
+                <a href={`tel:${SITE_PHONE}`} className="hover:text-white">
+                  {SITE_PHONE_DISPLAY}
+                </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="size-4 shrink-0 text-teal-400" />
-                vantai.dulichthuytien@gmail.com
+                <Mail className="size-4 shrink-0 text-amber-400" />
+                <a href={`mailto:${SITE_EMAIL}`} className="hover:text-white">
+                  {SITE_EMAIL}
+                </a>
               </li>
             </ul>
+
+            <div className="mt-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Hình thức thanh toán
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {paymentMethods.map((method) => (
+                  <span
+                    key={method}
+                    className="rounded-md border border-white/10 px-2.5 py-1 text-xs text-slate-300"
+                  >
+                    {method}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-sm text-zinc-500">© 2026 Nhà Xe Thủy Tiên. Bảo lưu mọi quyền.</p>
-          <p className="text-sm text-zinc-500">Thiết kế với 💚 tại Việt Nam</p>
+          <p className="text-sm text-slate-500">© 2026 {SITE_NAME}. Bảo lưu mọi quyền.</p>
+          <p className="text-sm text-slate-500">Thiết kế tại Việt Nam</p>
         </div>
       </div>
     </footer>

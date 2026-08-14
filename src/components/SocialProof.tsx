@@ -37,27 +37,24 @@ const testimonials = [
 
 export default function SocialProof() {
   return (
-    <section
-      id="danh-gia"
-      className="relative bg-gradient-to-b from-zinc-950 via-cyan-950/10 to-zinc-950 py-20 sm:py-28"
-    >
+    <section id="danh-gia" className="relative bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <Reveal className="grid grid-cols-2 gap-8 border-b border-white/10 pb-16 sm:grid-cols-4">
+        <Reveal className="grid grid-cols-2 gap-8 border-b border-slate-200 pb-16 sm:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-3xl font-extrabold text-transparent sm:text-4xl">
+              <p className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
                 {stat.value}
               </p>
-              <p className="mt-2 text-sm text-zinc-400">{stat.label}</p>
+              <p className="mt-2 text-sm text-slate-500">{stat.label}</p>
             </div>
           ))}
         </Reveal>
 
         <Reveal className="mx-auto mt-16 max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-wider text-cyan-400">
+          <span className="text-sm font-semibold uppercase tracking-wider text-amber-600">
             Khách hàng nói gì
           </span>
-          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+          <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
             Được tin tưởng bởi hàng ngàn khách hàng
           </h2>
         </Reveal>
@@ -67,14 +64,14 @@ export default function SocialProof() {
             <Reveal
               key={t.name}
               delay={index * 100}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6"
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
             >
-              <div className="flex gap-1 text-cyan-400">
+              <div className="flex gap-1 text-amber-500">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="size-4 fill-cyan-400" />
+                  <Star key={i} className="size-4 fill-amber-500" />
                 ))}
               </div>
-              <p className="mt-4 text-sm text-zinc-300">&ldquo;{t.quote}&rdquo;</p>
+              <p className="mt-4 text-sm text-slate-600">&ldquo;{t.quote}&rdquo;</p>
               <div className="mt-6 flex items-center gap-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -83,8 +80,8 @@ export default function SocialProof() {
                   className="size-10 rounded-full object-cover"
                 />
                 <div>
-                  <p className="text-sm font-semibold text-white">{t.name}</p>
-                  <p className="text-xs text-zinc-400">{t.role}</p>
+                  <p className="text-sm font-semibold text-slate-900">{t.name}</p>
+                  <p className="text-xs text-slate-500">{t.role}</p>
                 </div>
               </div>
             </Reveal>
