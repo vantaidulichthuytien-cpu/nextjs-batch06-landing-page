@@ -2,6 +2,7 @@
 
 import "leaflet/dist/leaflet.css";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import L from "leaflet";
 import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from "react-leaflet";
 import { X, Search, Loader2, MapPin, Check } from "lucide-react";
@@ -49,11 +50,16 @@ function FlyTo({ position }: { position: [number, number] | null }) {
 }
 
 async function reverseGeocode(lat: number, lng: number): Promise<string> {
-  const res = await fetch(
-    `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}&accept-language=vi`
-  );
-  const data = await res.json();
-  return data.display_name ?? `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+  try {
+    const res = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}&accept-language=vi`
+    );
+    if (!res.ok) throw new Error("reverse geocode failed");
+    const data = await res.json();
+    return data.display_name ?? `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+  } catch {
+    return `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+  }
 }
 
 export default function LocationPickerModal({
@@ -90,8 +96,11 @@ export default function LocationPickerModal({
             query
           )}&limit=5&countrycodes=vn&accept-language=vi`
         );
+        if (!res.ok) throw new Error("search failed");
         const data = await res.json();
         setSuggestions(data);
+      } catch {
+        setSuggestions([]);
       } finally {
         setSearching(false);
       }
@@ -130,7 +139,7 @@ export default function LocationPickerModal({
     onClose();
   }
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-[100] overflow-y-auto bg-slate-900/60 p-4">
       <div className="mx-auto my-8 flex max-h-[calc(100vh-4rem)] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
         <div className="flex shrink-0 items-center justify-between border-b border-slate-200 px-5 py-4">
@@ -175,7 +184,7 @@ export default function LocationPickerModal({
           )}
         </div>
 
-        <div className="mt-4 h-72 w-full shrink-0 sm:h-80">
+        <div className="isolate mt-4 h-72 w-full shrink-0 sm:h-80">
           <MapContainer
             center={DEFAULT_CENTER}
             zoom={DEFAULT_ZOOM}
@@ -215,6 +224,7 @@ export default function LocationPickerModal({
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
