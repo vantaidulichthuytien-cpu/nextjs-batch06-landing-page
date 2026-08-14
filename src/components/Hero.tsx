@@ -21,14 +21,16 @@ const badges = [
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative isolate overflow-hidden bg-slate-900 pt-16">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/xe16cho.jpg"
-        alt="Xe du lịch Nhà Xe Thủy Tiên"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/85 to-slate-900/40" />
+    <section id="hero" className="relative bg-slate-900 pt-16">
+      <div className="absolute inset-0 overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/xe16cho.jpg"
+          alt="Xe du lịch Nhà Xe Thủy Tiên"
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/85 to-slate-900/40" />
+      </div>
 
       <div className="relative mx-auto max-w-7xl px-6 pb-28 pt-16 sm:pt-20 lg:px-8">
         <div className="max-w-xl">
