@@ -32,58 +32,84 @@ export default function BookingForm() {
         ))}
       </div>
 
-      <form
-        onSubmit={handleSubmit}
-        className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:items-end"
-      >
-        <label className="block">
-          <span className="text-xs font-medium text-slate-500">Điểm đón</span>
-          <div className="mt-1 flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5">
-            <MapPin className="size-4 shrink-0 text-amber-500" />
-            <input
-              type="text"
-              placeholder="Chọn điểm đón"
-              className="w-full text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
-            />
-          </div>
-        </label>
+      <form onSubmit={handleSubmit} className="mt-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <label className="block">
+            <span className="text-xs font-medium text-slate-500">Điểm đón</span>
+            <div className="mt-1 flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5">
+              <MapPin className="size-4 shrink-0 text-amber-500" />
+              <input
+                type="text"
+                placeholder="Chọn điểm đón"
+                className="w-full text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
+              />
+            </div>
+          </label>
 
-        <label className="block">
-          <span className="text-xs font-medium text-slate-500">Ngày nhận xe</span>
-          <div className="mt-1 flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5">
-            <Calendar className="size-4 shrink-0 text-amber-500" />
-            <input
-              type="date"
-              className="w-full text-sm text-slate-900 focus:outline-none"
-            />
-          </div>
-        </label>
+          <label className="block">
+            <span className="text-xs font-medium text-slate-500">Điểm đến</span>
+            <div className="mt-1 flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5">
+              <MapPin className="size-4 shrink-0 text-amber-500" />
+              <input
+                type="text"
+                placeholder="Chọn điểm đến"
+                className="w-full text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
+              />
+            </div>
+          </label>
 
-        <label className="block">
-          <span className="text-xs font-medium text-slate-500">Giờ nhận xe</span>
-          <div className="mt-1 flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5">
-            <Clock className="size-4 shrink-0 text-amber-500" />
-            <input
-              type="time"
-              className="w-full text-sm text-slate-900 focus:outline-none"
-            />
-          </div>
-        </label>
+          <div className="hidden lg:block" />
 
-        <label className="block">
-          <span className="text-xs font-medium text-slate-500">Ngày trả xe</span>
-          <div className="mt-1 flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5">
-            <Calendar className="size-4 shrink-0 text-amber-500" />
-            <input
-              type="date"
-              className="w-full text-sm text-slate-900 focus:outline-none"
-            />
-          </div>
-        </label>
+          <label className="block">
+            <span className="text-xs font-medium text-slate-500">Ngày bắt đầu</span>
+            <div className="mt-1 flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5">
+              <Calendar className="size-4 shrink-0 text-amber-500" />
+              <input
+                type="date"
+                className="w-full text-sm text-slate-900 focus:outline-none"
+              />
+            </div>
+          </label>
+
+          <label className="block">
+            <span className="text-xs font-medium text-slate-500">Giờ bắt đầu</span>
+            <div className="mt-1 flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5">
+              <Clock className="size-4 shrink-0 text-amber-500" />
+              <input
+                type="time"
+                className="w-full text-sm text-slate-900 focus:outline-none"
+              />
+            </div>
+          </label>
+
+          <div className="hidden lg:block" />
+
+          <label className="block">
+            <span className="text-xs font-medium text-slate-500">Ngày kết thúc</span>
+            <div className="mt-1 flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5">
+              <Calendar className="size-4 shrink-0 text-amber-500" />
+              <input
+                type="date"
+                className="w-full text-sm text-slate-900 focus:outline-none"
+              />
+            </div>
+          </label>
+
+          <label className="block">
+            <span className="text-xs font-medium text-slate-500">Giờ kết thúc</span>
+            <div className="mt-1 flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5">
+              <Clock className="size-4 shrink-0 text-amber-500" />
+              <input
+                type="time"
+                className="w-full text-sm text-slate-900 focus:outline-none"
+              />
+            </div>
+          </label>
+        </div>
 
         <button
           type="submit"
-          className="flex h-[42px] items-center justify-center gap-2 rounded-lg bg-amber-500 px-6 text-sm font-semibold text-slate-900 shadow-lg shadow-amber-500/30 transition-transform hover:scale-105 hover:bg-amber-400"
+          className="mt-4 flex h-[44px] w-full items-center justify-center gap-2 rounded-lg bg-amber-500 px-6 text-sm font-semibold text-slate-900 shadow-lg shadow-amber-500/30 transition-transform hover:scale-[1.01] hover:bg-amber-400 sm:w-auto"
         >
           <Search className="size-4" />
           Tìm xe
