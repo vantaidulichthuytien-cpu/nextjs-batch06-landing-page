@@ -69,9 +69,15 @@ export default function LocationPickerModal({
   const [address, setAddress] = useState(initialAddress ?? "");
   const [resolving, setResolving] = useState(false);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const skipNextSearchRef = useRef(false);
 
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
+    if (skipNextSearchRef.current) {
+      skipNextSearchRef.current = false;
+      setSuggestions([]);
+      return;
+    }
     if (query.trim().length < 3) {
       setSuggestions([]);
       return;
@@ -98,6 +104,7 @@ export default function LocationPickerModal({
   function handlePickSuggestion(s: Suggestion) {
     const lat = parseFloat(s.lat);
     const lon = parseFloat(s.lon);
+    skipNextSearchRef.current = true;
     setPosition([lat, lon]);
     setAddress(s.display_name);
     setQuery(s.display_name);
@@ -109,6 +116,7 @@ export default function LocationPickerModal({
     setResolving(true);
     try {
       const result = await reverseGeocode(lat, lng);
+      skipNextSearchRef.current = true;
       setAddress(result);
       setQuery(result);
     } finally {
@@ -123,9 +131,9 @@ export default function LocationPickerModal({
   }
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 p-4">
-      <div className="flex w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
-        <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+    <div className="fixed inset-0 z-[100] overflow-y-auto bg-slate-900/60 p-4">
+      <div className="mx-auto my-8 flex max-h-[calc(100vh-4rem)] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
+        <div className="flex shrink-0 items-center justify-between border-b border-slate-200 px-5 py-4">
           <h3 className="text-base font-semibold text-slate-900">{title}</h3>
           <button
             onClick={onClose}
@@ -136,7 +144,7 @@ export default function LocationPickerModal({
           </button>
         </div>
 
-        <div className="relative px-5 pt-4">
+        <div className="relative shrink-0 px-5 pt-4">
           <div className="flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2.5">
             <Search className="size-4 shrink-0 text-slate-400" />
             <input
@@ -167,7 +175,7 @@ export default function LocationPickerModal({
           )}
         </div>
 
-        <div className="mt-4 h-80 w-full sm:h-96">
+        <div className="mt-4 h-72 w-full shrink-0 sm:h-80">
           <MapContainer
             center={DEFAULT_CENTER}
             zoom={DEFAULT_ZOOM}
@@ -183,7 +191,7 @@ export default function LocationPickerModal({
           </MapContainer>
         </div>
 
-        <div className="flex items-center justify-between gap-4 border-t border-slate-200 px-5 py-4">
+        <div className="flex shrink-0 items-center justify-between gap-4 border-t border-slate-200 px-5 py-4">
           <p className="min-w-0 flex-1 truncate text-sm text-slate-600">
             {resolving ? (
               <span className="flex items-center gap-2 text-slate-400">
