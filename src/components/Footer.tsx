@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Phone, Mail, MapPin, Headset, MessageCircle } from "lucide-react";
 import {
   SITE_NAME,
@@ -8,10 +9,15 @@ import {
   SITE_ADDRESS,
   SITE_FACEBOOK_URL,
 } from "@/lib/site";
+import { vehicles } from "@/lib/vehicles";
 
-const footerLinks: Record<string, string[]> = {
-  "Dịch vụ": ["Xe 4 - 7 chỗ", "Xe 16 chỗ", "Xe 29 chỗ", "Xe 45 chỗ", "Thuê xe theo tháng"],
-  "Công ty": ["Về chúng tôi", "Tuyển dụng", "Điều khoản dịch vụ", "Chính sách bảo mật"],
+const footerLinks: Record<string, { label: string; href: string }[]> = {
+  "Dịch vụ": vehicles.map((v) => ({ label: v.name, href: `/xe/${v.slug}` })),
+  "Công ty": [
+    { label: "Về chúng tôi", href: "/gioi-thieu" },
+    { label: "Tin tức", href: "/tin-tuc" },
+    { label: "Liên hệ", href: "/lien-he" },
+  ],
 };
 
 const paymentMethods = ["Tiền mặt", "Chuyển khoản", "Momo", "ZaloPay"];
@@ -111,13 +117,13 @@ export default function Footer() {
               <h3 className="text-sm font-semibold text-white">{title}</h3>
               <ul className="mt-4 space-y-3">
                 {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
                       className="text-sm text-slate-400 transition-colors hover:text-white"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

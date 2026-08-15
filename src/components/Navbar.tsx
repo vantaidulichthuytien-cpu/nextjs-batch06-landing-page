@@ -9,10 +9,12 @@ import { vehicles } from "@/lib/vehicles";
 
 const navLinks = [
   { href: "/#hero", label: "Trang chủ" },
-  { href: "/#loi-ich", label: "Lợi ích" },
+  { href: "/gioi-thieu", label: "Giới thiệu" },
   { href: "/#bang-gia", label: "Bảng giá" },
   { href: "/#danh-gia", label: "Đánh giá" },
+  { href: "/tin-tuc", label: "Tin tức" },
   { href: "/#faq", label: "FAQ" },
+  { href: "/lien-he", label: "Liên hệ" },
 ];
 
 export default function Navbar() {
@@ -55,15 +57,25 @@ export default function Navbar() {
             </div>
           </div>
 
-          {navLinks.slice(1).map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.slice(1).map((link) =>
+            link.href.startsWith("/#") ? (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </div>
 
         <div className="hidden items-center gap-4 lg:flex">
@@ -74,12 +86,12 @@ export default function Navbar() {
             <Phone className="size-4" />
             {SITE_PHONE_DISPLAY}
           </a>
-          <a
-            href="/#lien-he"
+          <Link
+            href="/lien-he"
             className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-transform hover:scale-105 hover:bg-blue-500"
           >
             Đặt xe ngay
-          </a>
+          </Link>
         </div>
 
         <button
@@ -94,16 +106,27 @@ export default function Navbar() {
       {open && (
         <div className="animate__animated animate__fadeIn animate__faster border-t border-slate-200 bg-white px-6 py-4 lg:hidden">
           <div className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="text-sm font-medium text-slate-600 hover:text-slate-900"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith("/#") ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm font-medium text-slate-600 hover:text-slate-900"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm font-medium text-slate-600 hover:text-slate-900"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
             <a
               href={`tel:${SITE_PHONE}`}
               onClick={() => setOpen(false)}
@@ -112,13 +135,13 @@ export default function Navbar() {
               <Phone className="size-4" />
               {SITE_PHONE_DISPLAY}
             </a>
-            <a
-              href="/#lien-he"
+            <Link
+              href="/lien-he"
               onClick={() => setOpen(false)}
               className="rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-semibold text-white"
             >
               Đặt xe ngay
-            </a>
+            </Link>
           </div>
         </div>
       )}
