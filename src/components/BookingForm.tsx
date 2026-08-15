@@ -19,7 +19,7 @@ interface FieldProps {
 function Field({ icon: Icon, label, type }: FieldProps) {
   return (
     <label className="flex flex-1 items-center gap-3 px-4 py-3">
-      <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-amber-600">
+      <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
         <Icon className="size-4" />
       </span>
       <span className="min-w-0 flex-1">
@@ -47,7 +47,7 @@ function LocationField({ label, value, placeholder, onOpen }: LocationFieldProps
       onClick={onOpen}
       className="flex flex-1 items-center gap-3 px-4 py-3 text-left"
     >
-      <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-amber-600">
+      <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
         <MapPin className="size-4" />
       </span>
       <span className="min-w-0 flex-1">
@@ -119,7 +119,7 @@ export default function BookingForm() {
 
         <button
           type="submit"
-          className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-amber-500 text-sm font-semibold text-slate-900 shadow-lg shadow-amber-500/30 transition-transform hover:scale-[1.01] hover:bg-amber-400 sm:w-auto sm:px-8"
+          className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-blue-500 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition-transform hover:scale-[1.01] hover:bg-blue-400 sm:w-auto sm:px-8"
         >
           <Search className="size-4" />
           Tìm xe

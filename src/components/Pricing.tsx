@@ -49,7 +49,7 @@ export default function Pricing() {
     <section id="bang-gia" className="relative bg-slate-50 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-wider text-amber-600">
+          <span className="text-sm font-semibold uppercase tracking-wider text-blue-600">
             Bảng giá
           </span>
           <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
@@ -67,12 +67,12 @@ export default function Pricing() {
               delay={index * 100}
               className={`relative rounded-3xl border p-8 ${
                 plan.highlight
-                  ? "border-amber-400 bg-white shadow-2xl shadow-amber-500/10"
+                  ? "border-blue-400 bg-white shadow-2xl shadow-blue-500/10"
                   : "border-slate-200 bg-white"
               }`}
             >
               {plan.highlight && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-amber-500 px-4 py-1 text-xs font-semibold text-slate-900">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-blue-500 px-4 py-1 text-xs font-semibold text-white">
                   Phổ biến nhất
                 </span>
               )}
@@ -91,7 +91,7 @@ export default function Pricing() {
                     key={feature}
                     className="flex items-start gap-3 text-sm text-slate-600"
                   >
-                    <Check className="mt-0.5 size-4 shrink-0 text-amber-500" />
+                    <Check className="mt-0.5 size-4 shrink-0 text-blue-500" />
                     {feature}
                   </li>
                 ))}
@@ -101,7 +101,7 @@ export default function Pricing() {
                 href="#lien-he"
                 className={`mt-8 block rounded-lg px-5 py-3 text-center text-sm font-semibold transition-transform hover:scale-105 ${
                   plan.highlight
-                    ? "bg-amber-500 text-slate-900 shadow-lg shadow-amber-500/30 hover:bg-amber-400"
+                    ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30 hover:bg-blue-400"
                     : "border border-slate-300 text-slate-900 hover:bg-slate-50"
                 }`}
               >

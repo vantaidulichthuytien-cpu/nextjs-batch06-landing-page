@@ -34,11 +34,11 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="dich-vu" className="relative bg-white pb-20 pt-32 sm:pb-28 sm:pt-40">
+    <section id="dich-vu" className="relative bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <Reveal>
-            <span className="text-sm font-semibold uppercase tracking-wider text-amber-600">
+            <span className="text-sm font-semibold uppercase tracking-wider text-blue-600">
               Chọn loại xe phù hợp
             </span>
             <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
@@ -47,7 +47,7 @@ export default function Services() {
           </Reveal>
           <a
             href="#bang-gia"
-            className="hidden items-center gap-1 text-sm font-semibold text-amber-600 hover:text-amber-700 sm:flex"
+            className="hidden items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700 sm:flex"
           >
             Xem bảng giá
             <ArrowRight className="size-4" />
@@ -77,12 +77,12 @@ export default function Services() {
                 <h3 className="font-semibold text-slate-900">{service.name}</h3>
                 <p className="mt-2 text-sm text-slate-500">{service.desc}</p>
                 <div className="mt-4 flex items-center justify-between">
-                  <span className="text-sm font-semibold text-amber-600">
+                  <span className="text-sm font-semibold text-blue-600">
                     {service.price}
                   </span>
                   <a
                     href="#bang-gia"
-                    className="flex items-center gap-1 text-sm font-medium text-slate-700 hover:text-amber-600"
+                    className="flex items-center gap-1 text-sm font-medium text-slate-700 hover:text-blue-600"
                   >
                     Xem giá
                     <ArrowRight className="size-3.5" />

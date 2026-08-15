@@ -12,7 +12,7 @@ const DEFAULT_ZOOM = 13;
 
 const pinIcon = L.divIcon({
   className: "",
-  html: `<svg width="32" height="32" viewBox="0 0 24 24" fill="#f59e0b" stroke="#0f172a" stroke-width="1"><path d="M12 2C7.58 2 4 5.58 4 10c0 5.25 7 12 8 12s8-6.75 8-12c0-4.42-3.58-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>`,
+  html: `<svg width="32" height="32" viewBox="0 0 24 24" fill="#2563eb" stroke="#0f172a" stroke-width="1"><path d="M12 2C7.58 2 4 5.58 4 10c0 5.25 7 12 8 12s8-6.75 8-12c0-4.42-3.58-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>`,
   iconSize: [32, 32],
   iconAnchor: [16, 32],
 });
@@ -174,9 +174,9 @@ export default function LocationPickerModal({
                   key={`${s.lat}-${s.lon}`}
                   type="button"
                   onClick={() => handlePickSuggestion(s)}
-                  className="flex w-full items-start gap-2 px-3 py-2.5 text-left text-sm text-slate-700 hover:bg-amber-50"
+                  className="flex w-full items-start gap-2 px-3 py-2.5 text-left text-sm text-slate-700 hover:bg-blue-50"
                 >
-                  <MapPin className="mt-0.5 size-4 shrink-0 text-amber-500" />
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-blue-500" />
                   <span className="line-clamp-2">{s.display_name}</span>
                 </button>
               ))}
@@ -217,7 +217,7 @@ export default function LocationPickerModal({
             type="button"
             onClick={handleConfirm}
             disabled={!address || resolving}
-            className="flex shrink-0 items-center gap-2 rounded-lg bg-amber-500 px-4 py-2.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-amber-400 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400"
+            className="flex shrink-0 items-center gap-2 rounded-lg bg-blue-500 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-400 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400"
           >
             <Check className="size-4" />
             Xác nhận

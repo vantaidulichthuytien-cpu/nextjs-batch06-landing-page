@@ -14,7 +14,7 @@ export default function Solution() {
     <section className="relative overflow-hidden bg-white py-20 sm:py-28">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2 lg:px-8">
         <Reveal animation="animate__fadeInLeft" className="order-2 lg:order-1">
-          <span className="text-sm font-semibold uppercase tracking-wider text-amber-600">
+          <span className="text-sm font-semibold uppercase tracking-wider text-blue-600">
             Giải pháp toàn diện
           </span>
           <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
@@ -28,7 +28,7 @@ export default function Solution() {
           <ul className="mt-8 space-y-4">
             {points.map((point) => (
               <li key={point} className="flex items-start gap-3">
-                <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-amber-500" />
+                <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-blue-500" />
                 <span className="text-slate-700">{point}</span>
               </li>
             ))}

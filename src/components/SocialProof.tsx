@@ -51,7 +51,7 @@ export default function SocialProof() {
         </Reveal>
 
         <Reveal className="mx-auto mt-16 max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-wider text-amber-600">
+          <span className="text-sm font-semibold uppercase tracking-wider text-blue-600">
             Khách hàng nói gì
           </span>
           <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
@@ -66,9 +66,9 @@ export default function SocialProof() {
               delay={index * 100}
               className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
             >
-              <div className="flex gap-1 text-amber-500">
+              <div className="flex gap-1 text-blue-500">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="size-4 fill-amber-500" />
+                  <Star key={i} className="size-4 fill-blue-500" />
                 ))}
               </div>
               <p className="mt-4 text-sm text-slate-600">&ldquo;{t.quote}&rdquo;</p>
@@ -85,6 +85,17 @@ export default function SocialProof() {
                 </div>
               </div>
             </Reveal>
+          ))}
+        </div>
+
+        <div className="mt-8 flex items-center justify-center gap-2">
+          {testimonials.map((t, index) => (
+            <span
+              key={t.name}
+              className={`h-2 rounded-full transition-all ${
+                index === 0 ? "w-6 bg-blue-600" : "w-2 bg-slate-300"
+              }`}
+            />
           ))}
         </div>
       </div>

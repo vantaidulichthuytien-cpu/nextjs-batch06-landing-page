@@ -1,12 +1,14 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ProblemStatement from "@/components/ProblemStatement";
-import Solution from "@/components/Solution";
-import HowItWorks from "@/components/HowItWorks";
-import Benefits from "@/components/Benefits";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import Services from "@/components/Services";
 import PromoBanner from "@/components/PromoBanner";
+import HowItWorks from "@/components/HowItWorks";
 import SocialProof from "@/components/SocialProof";
+import ServiceAreas from "@/components/ServiceAreas";
+import ProblemStatement from "@/components/ProblemStatement";
+import Solution from "@/components/Solution";
+import Benefits from "@/components/Benefits";
 import Pricing from "@/components/Pricing";
 import CTA from "@/components/CTA";
 import FAQ from "@/components/FAQ";
@@ -37,13 +39,15 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <WhyChooseUs />
         <Services />
         <PromoBanner />
+        <HowItWorks />
+        <SocialProof />
+        <ServiceAreas />
         <ProblemStatement />
         <Solution />
-        <HowItWorks />
         <Benefits />
-        <SocialProof />
         <Pricing />
         <CTA />
         <FAQ />

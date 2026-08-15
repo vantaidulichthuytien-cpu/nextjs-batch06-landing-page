@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Headset, MessageCircle } from "lucide-react";
 import {
   SITE_NAME,
   SITE_PHONE,
@@ -32,7 +32,44 @@ const socialIcons = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/10 bg-slate-900 pt-16 pb-8">
+    <>
+      <div className="bg-blue-600">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 py-5 sm:grid-cols-3 lg:px-8">
+          <a
+            href={`tel:${SITE_PHONE}`}
+            className="flex items-center justify-center gap-3 text-white sm:justify-start"
+          >
+            <Phone className="size-5 shrink-0" />
+            <span className="text-sm">
+              Gọi ngay 24/7
+              <span className="block font-semibold">{SITE_PHONE_DISPLAY}</span>
+            </span>
+          </a>
+          <a
+            href={`mailto:${SITE_EMAIL}`}
+            className="flex items-center justify-center gap-3 text-white sm:justify-start"
+          >
+            <Mail className="size-5 shrink-0" />
+            <span className="text-sm">
+              Email cho chúng tôi
+              <span className="block truncate font-semibold">{SITE_EMAIL}</span>
+            </span>
+          </a>
+          <a
+            href="https://zalo.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 text-white sm:justify-start"
+          >
+            <MessageCircle className="size-5 shrink-0" />
+            <span className="text-sm">
+              Cần hỗ trợ?
+              <span className="block font-semibold">Chat Zalo với chúng tôi</span>
+            </span>
+          </a>
+        </div>
+      </div>
+      <footer className="relative border-t border-white/10 bg-slate-900 pt-16 pb-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -53,7 +90,7 @@ export default function Footer() {
                   key={icon.label}
                   href="#"
                   aria-label={icon.label}
-                  className="flex size-9 items-center justify-center rounded-full border border-white/10 text-slate-400 transition-colors hover:border-amber-400/40 hover:text-white"
+                  className="flex size-9 items-center justify-center rounded-full border border-white/10 text-slate-400 transition-colors hover:border-blue-400/40 hover:text-white"
                 >
                   <svg viewBox="0 0 24 24" className="size-4 fill-current">
                     <path d={icon.path} />
@@ -85,17 +122,17 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-white">Liên hệ</h3>
             <ul className="mt-4 space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-amber-400" />
+                <MapPin className="mt-0.5 size-4 shrink-0 text-blue-400" />
                 {SITE_ADDRESS}
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="size-4 shrink-0 text-amber-400" />
+                <Phone className="size-4 shrink-0 text-blue-400" />
                 <a href={`tel:${SITE_PHONE}`} className="hover:text-white">
                   {SITE_PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="size-4 shrink-0 text-amber-400" />
+                <Mail className="size-4 shrink-0 text-blue-400" />
                 <a href={`mailto:${SITE_EMAIL}`} className="hover:text-white">
                   {SITE_EMAIL}
                 </a>
@@ -125,6 +162,7 @@ export default function Footer() {
           <p className="text-sm text-slate-500">Thiết kế tại Việt Nam</p>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   );
 }

@@ -47,7 +47,7 @@ export default function Benefits() {
     <section id="loi-ich" className="relative bg-slate-50 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-wider text-amber-600">
+          <span className="text-sm font-semibold uppercase tracking-wider text-blue-600">
             Lợi ích vượt trội
           </span>
           <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
@@ -60,9 +60,9 @@ export default function Benefits() {
             <Reveal
               key={item.title}
               delay={index * 80}
-              className="group rounded-2xl border border-slate-200 bg-white p-6 transition-colors hover:border-amber-300"
+              className="group rounded-2xl border border-slate-200 bg-white p-6 transition-colors hover:border-blue-300"
             >
-              <div className="flex size-12 items-center justify-center rounded-xl bg-amber-500 transition-transform group-hover:scale-110">
+              <div className="flex size-12 items-center justify-center rounded-xl bg-blue-500 transition-transform group-hover:scale-110">
                 <item.icon className="size-6 text-white" />
               </div>
               <h3 className="mt-4 font-semibold text-slate-900">{item.title}</h3>

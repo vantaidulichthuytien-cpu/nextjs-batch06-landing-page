@@ -12,7 +12,7 @@ export default function FAQ() {
     <section id="faq" className="relative bg-slate-50 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         <Reveal className="text-center">
-          <span className="text-sm font-semibold uppercase tracking-wider text-amber-600">
+          <span className="text-sm font-semibold uppercase tracking-wider text-blue-600">
             Hỏi đáp
           </span>
           <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
@@ -36,7 +36,7 @@ export default function FAQ() {
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`size-5 shrink-0 text-amber-600 transition-transform ${
+                    className={`size-5 shrink-0 text-blue-600 transition-transform ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
