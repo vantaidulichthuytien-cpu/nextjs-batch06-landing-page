@@ -98,7 +98,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href="#lien-he"
+                href="/#lien-he"
                 className={`mt-8 block rounded-lg px-5 py-3 text-center text-sm font-semibold transition-transform hover:scale-105 ${
                   plan.highlight
                     ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30 hover:bg-blue-400"

@@ -38,7 +38,7 @@ export default function PromoBanner() {
               bạch, không qua trung gian.
             </p>
             <a
-              href="#bang-gia"
+              href="/#bang-gia"
               className="mt-6 inline-flex w-fit items-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-105 hover:bg-blue-500"
             >
               Xem ưu đãi

@@ -4,3 +4,4 @@ export const SITE_PHONE = "0908049489";
 export const SITE_PHONE_DISPLAY = "0908 049 489";
 export const SITE_EMAIL = "vantai.dulichthuytien@gmail.com";
 export const SITE_ADDRESS = "1023/34 Khu Phố 13, Phường Tam Hiệp, TP. Đồng Nai";
+export const SITE_FACEBOOK_URL = "https://www.facebook.com/congtydulichthuytien";

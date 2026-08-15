@@ -5,20 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { SITE_PHONE, SITE_PHONE_DISPLAY } from "@/lib/site";
-
-const services = [
-  { href: "#dich-vu", label: "Xe 4 - 7 chỗ" },
-  { href: "#dich-vu", label: "Xe 16 chỗ" },
-  { href: "#dich-vu", label: "Xe 29 chỗ" },
-  { href: "#dich-vu", label: "Xe 45 chỗ" },
-];
+import { vehicles } from "@/lib/vehicles";
 
 const navLinks = [
-  { href: "#hero", label: "Trang chủ" },
-  { href: "#loi-ich", label: "Lợi ích" },
-  { href: "#bang-gia", label: "Bảng giá" },
-  { href: "#danh-gia", label: "Đánh giá" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#hero", label: "Trang chủ" },
+  { href: "/#loi-ich", label: "Lợi ích" },
+  { href: "/#bang-gia", label: "Bảng giá" },
+  { href: "/#danh-gia", label: "Đánh giá" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export default function Navbar() {
@@ -39,7 +33,7 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
-          <a href="#hero" className="text-sm font-semibold text-blue-600">
+          <a href="/#hero" className="text-sm font-semibold text-blue-600">
             Trang chủ
           </a>
 
@@ -49,14 +43,14 @@ export default function Navbar() {
               <ChevronDown className="size-4" />
             </button>
             <div className="invisible absolute left-0 top-full mt-2 w-48 rounded-xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition-all group-hover:visible group-hover:opacity-100">
-              {services.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
+              {vehicles.map((v) => (
+                <Link
+                  key={v.slug}
+                  href={`/xe/${v.slug}`}
                   className="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600"
                 >
-                  {s.label}
-                </a>
+                  {v.name}
+                </Link>
               ))}
             </div>
           </div>
@@ -81,7 +75,7 @@ export default function Navbar() {
             {SITE_PHONE_DISPLAY}
           </a>
           <a
-            href="#lien-he"
+            href="/#lien-he"
             className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-transform hover:scale-105 hover:bg-blue-500"
           >
             Đặt xe ngay
@@ -119,7 +113,7 @@ export default function Navbar() {
               {SITE_PHONE_DISPLAY}
             </a>
             <a
-              href="#lien-he"
+              href="/#lien-he"
               onClick={() => setOpen(false)}
               className="rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-semibold text-white"
             >
