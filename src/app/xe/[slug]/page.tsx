@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Users, Phone, Check, ArrowRight, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import TrackedLink from "@/components/TrackedLink";
 import { vehicles, getVehicle } from "@/lib/vehicles";
 import { SITE_URL, SITE_PHONE, SITE_PHONE_DISPLAY } from "@/lib/site";
 
@@ -21,7 +23,7 @@ export async function generateMetadata({
   const vehicle = getVehicle(slug);
   if (!vehicle) return {};
 
-  const title = `Cho Thuê ${vehicle.name} - Giá Từ ${vehicle.price}`;
+  const title = `Cho Thuê ${vehicle.name} Kèm Tài Xế - Báo Giá Theo Lộ Trình`;
 
   return {
     title,
@@ -59,19 +61,18 @@ export default async function VehiclePage({
 
   const otherVehicles = vehicles.filter((v) => v.slug !== slug);
 
+  // Dùng Service thay cho Product + Offer: giá tính theo lộ trình nên không có
+  // con số cố định để khai. Khai Offer không kèm giá là schema không hợp lệ.
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    name: vehicle.name,
+    "@type": "Service",
+    name: `Cho thuê ${vehicle.name}`,
+    serviceType: "Cho thuê xe du lịch kèm tài xế",
     description: vehicle.metaDescription,
     image: `${SITE_URL}${vehicle.image}`,
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "VND",
-      price: vehicle.price.replace(/\D/g, ""),
-      availability: "https://schema.org/InStock",
-      url: `${SITE_URL}/xe/${vehicle.slug}`,
-    },
+    url: `${SITE_URL}/xe/${vehicle.slug}`,
+    provider: { "@id": `${SITE_URL}/#business` },
+    areaServed: { "@type": "AdministrativeArea", name: "Đồng Nai" },
   };
 
   return (
@@ -84,11 +85,13 @@ export default async function VehiclePage({
       <main className="flex-1 bg-white">
         <section className="relative pt-16">
           <div className="relative h-[45vh] min-h-[340px] w-full overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={vehicle.image}
               alt={vehicle.name}
-              className="h-full w-full object-cover"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent" />
             <div className="absolute inset-x-0 bottom-0">
@@ -108,7 +111,7 @@ export default async function VehiclePage({
                   {vehicle.name}
                 </h1>
                 <p className="mt-2 text-lg font-semibold text-white">
-                  Từ {vehicle.price}
+                  Báo giá theo lộ trình trong 5 phút
                 </p>
               </div>
             </div>
@@ -157,17 +160,20 @@ export default async function VehiclePage({
               Đặt {vehicle.name} ngay hôm nay
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-blue-100">
-              Xe đời mới, tài xế chuyên nghiệp, giá minh bạch từ {vehicle.price}.
-              Liên hệ để nhận báo giá miễn phí trong 5 phút.
+              Xe đời mới, tài xế chuyên nghiệp. Gửi lộ trình và ngày đi, nhà xe
+              báo giá trọn gói trong 5 phút — đã gồm xăng dầu, cầu đường, tài xế
+              và bảo hiểm.
             </p>
             <div className="mt-6 flex flex-col justify-center gap-4 sm:flex-row">
-              <a
+              <TrackedLink
+                loai="goi"
+                viTri={`trang-xe-${vehicle.slug}`}
                 href={`tel:${SITE_PHONE}`}
                 className="flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-blue-700 transition-transform hover:scale-105"
               >
                 <Phone className="size-4" />
                 Gọi ngay {SITE_PHONE_DISPLAY}
-              </a>
+              </TrackedLink>
               <Link
                 href="/#lien-he"
                 className="flex items-center justify-center gap-2 rounded-lg border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
@@ -190,11 +196,12 @@ export default async function VehiclePage({
                   className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-lg"
                 >
                   <div className="relative h-40 overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={v.image}
                       alt={v.name}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      fill
+                      sizes="(max-width: 640px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <span className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-slate-900/80 px-3 py-1 text-xs font-medium text-white backdrop-blur">
                       <Users className="size-3.5" />
@@ -203,9 +210,7 @@ export default async function VehiclePage({
                   </div>
                   <div className="p-4">
                     <h3 className="font-semibold text-slate-900">{v.name}</h3>
-                    <p className="mt-1 text-sm font-semibold text-blue-600">
-                      Từ {v.price}
-                    </p>
+                    <p className="mt-1 text-sm text-slate-500">{v.tagline}</p>
                   </div>
                 </Link>
               ))}

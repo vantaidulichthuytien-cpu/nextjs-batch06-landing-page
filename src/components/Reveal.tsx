@@ -2,16 +2,25 @@
 
 import { useEffect, useRef, useState } from "react";
 
+type RevealAnimation = "up" | "left" | "right" | "fade";
+
+const animationClass: Record<RevealAnimation, string> = {
+  up: "reveal-up",
+  left: "reveal-left",
+  right: "reveal-right",
+  fade: "reveal-fade",
+};
+
 interface RevealProps {
   children: React.ReactNode;
-  animation?: string;
+  animation?: RevealAnimation;
   delay?: number;
   className?: string;
 }
 
 export default function Reveal({
   children,
-  animation = "animate__fadeInUp",
+  animation = "up",
   delay = 0,
   className = "",
 }: RevealProps) {
@@ -41,7 +50,7 @@ export default function Reveal({
       ref={ref}
       style={visible ? { animationDelay: `${delay}ms` } : undefined}
       className={`${className} ${
-        visible ? `animate__animated ${animation}` : "opacity-0"
+        visible ? animationClass[animation] : "opacity-0"
       }`}
     >
       {children}

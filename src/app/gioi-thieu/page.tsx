@@ -11,7 +11,7 @@ import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 const title = "Giới Thiệu - Nhà Xe Thủy Tiên";
 const description =
-  "Tìm hiểu về Nhà Xe Thủy Tiên - đơn vị cho thuê xe du lịch từ 4 đến 45 chỗ tại Đồng Nai, với hơn 8 năm kinh nghiệm, đội xe đời mới và đội ngũ tài xế chuyên nghiệp.";
+  "Tìm hiểu về Nhà Xe Thủy Tiên - đơn vị cho thuê xe du lịch từ 4 đến 47 chỗ tại Đồng Nai, hoạt động từ năm 2021, đội xe đời mới và đội ngũ tài xế chuyên nghiệp.";
 
 export const metadata: Metadata = {
   title,
@@ -32,11 +32,17 @@ export const metadata: Metadata = {
   },
 };
 
+/*
+  Số liệu thật, xác nhận với chủ nhà xe 25/8/2026. Bốn con số cũ ("8+ năm",
+  "10.000+ khách hàng", "50.000+ chuyến đi", "4.9/5") không kiểm chứng được
+  nên đã gỡ trước đó. Điểm đánh giá Google Maps sẽ thêm khi có Google
+  Business Profile và review thật.
+*/
 const stats = [
-  { value: "8+", label: "Năm kinh nghiệm" },
-  { value: "10.000+", label: "Khách hàng tin dùng" },
-  { value: "50.000+", label: "Chuyến đi an toàn" },
-  { value: "4.9/5", label: "Đánh giá trung bình" },
+  { value: "4 – 47", label: "Chỗ ngồi, đủ mọi quy mô đoàn" },
+  { value: "27 xe", label: "Quy mô đội xe" },
+  { value: "5 phút", label: "Thời gian báo giá" },
+  { value: "2021", label: "Năm thành lập" },
 ];
 
 const values = [
@@ -58,7 +64,7 @@ const values = [
   {
     icon: Car,
     title: "Đa dạng",
-    desc: "Đội xe từ 4 đến 45 chỗ, đáp ứng mọi quy mô chuyến đi.",
+    desc: "Đội xe từ 4 đến 47 chỗ, đáp ứng mọi quy mô chuyến đi.",
   },
 ];
 
@@ -101,16 +107,16 @@ export default function AboutPage() {
             <div className="mt-5 space-y-4 leading-relaxed text-slate-600">
               <p>
                 {SITE_NAME} bắt đầu hành trình phục vụ khách hàng tại Đồng Nai
-                với mong muốn mang đến những chuyến đi an toàn, thoải mái và
-                minh bạch về giá cả. Qua nhiều năm hoạt động, chúng tôi đã
-                đồng hành cùng hàng ngàn gia đình, nhóm bạn và doanh nghiệp
-                trên khắp các cung đường từ ngắn ngày đến dài ngày.
+                từ năm 2021, với mong muốn mang đến những chuyến đi an toàn,
+                thoải mái và minh bạch về giá cả. Từ đó đến nay, chúng tôi đã
+                đồng hành cùng nhiều gia đình, nhóm bạn và doanh nghiệp trên
+                khắp các cung đường từ ngắn ngày đến dài ngày.
               </p>
               <p>
-                Với đội xe đa dạng từ 4 đến 45 chỗ, đội ngũ tài xế giàu kinh
-                nghiệm và bộ phận chăm sóc khách hàng luôn sẵn sàng hỗ trợ
-                24/7, chúng tôi không ngừng nỗ lực để mỗi chuyến đi cùng{" "}
-                {SITE_NAME} đều để lại trải nghiệm trọn vẹn nhất.
+                Với đội xe 27 chiếc đa dạng từ 4 đến 47 chỗ, đội ngũ tài xế
+                giàu kinh nghiệm và bộ phận chăm sóc khách hàng tận tâm, chúng
+                tôi không ngừng nỗ lực để mỗi chuyến đi cùng {SITE_NAME} đều
+                để lại trải nghiệm trọn vẹn nhất.
               </p>
             </div>
           </Reveal>

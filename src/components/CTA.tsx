@@ -1,6 +1,7 @@
 import { Phone, MessageCircle } from "lucide-react";
 import Reveal from "./Reveal";
-import { SITE_PHONE, SITE_PHONE_DISPLAY } from "@/lib/site";
+import TrackedLink from "./TrackedLink";
+import { SITE_PHONE, SITE_PHONE_DISPLAY, SITE_ZALO_URL } from "@/lib/site";
 
 export default function CTA() {
   return (
@@ -20,22 +21,24 @@ export default function CTA() {
           </p>
 
           <div className="relative mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <a
+            <TrackedLink
+              loai="goi"
+              viTri="cta-cuoi-trang"
               href={`tel:${SITE_PHONE}`}
               className="flex items-center justify-center gap-2 rounded-lg bg-blue-500 px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-105 hover:bg-blue-400"
             >
               <Phone className="size-4" />
               Gọi ngay {SITE_PHONE_DISPLAY}
-            </a>
-            <a
-              href="https://zalo.me"
-              target="_blank"
-              rel="noopener noreferrer"
+            </TrackedLink>
+            <TrackedLink
+              loai="zalo"
+              viTri="cta-cuoi-trang"
+              href={SITE_ZALO_URL}
               className="flex items-center justify-center gap-2 rounded-lg border border-white/30 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               <MessageCircle className="size-4" />
               Chat Zalo tư vấn
-            </a>
+            </TrackedLink>
           </div>
         </Reveal>
       </div>

@@ -6,11 +6,12 @@ import Image from "next/image";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { SITE_PHONE, SITE_PHONE_DISPLAY } from "@/lib/site";
 import { vehicles } from "@/lib/vehicles";
+import { trackGoiDien } from "@/lib/analytics";
 
 const navLinks = [
   { href: "/#hero", label: "Trang chủ" },
   { href: "/gioi-thieu", label: "Giới thiệu" },
-  { href: "/#bang-gia", label: "Bảng giá" },
+  { href: "/#bao-gia", label: "Báo giá" },
   { href: "/#danh-gia", label: "Đánh giá" },
   { href: "/tin-tuc", label: "Tin tức" },
   { href: "/#faq", label: "FAQ" },
@@ -81,6 +82,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href={`tel:${SITE_PHONE}`}
+            onClick={() => trackGoiDien("thanh-dieu-huong")}
             className="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900"
           >
             <Phone className="size-4" />
@@ -104,7 +106,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="animate__animated animate__fadeIn animate__faster border-t border-slate-200 bg-white px-6 py-4 lg:hidden">
+        <div className="reveal-fade border-t border-slate-200 bg-white px-6 py-4 lg:hidden">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) =>
               link.href.startsWith("/#") ? (
@@ -129,7 +131,10 @@ export default function Navbar() {
             )}
             <a
               href={`tel:${SITE_PHONE}`}
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                trackGoiDien("menu-mobile");
+                setOpen(false);
+              }}
               className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900"
             >
               <Phone className="size-4" />

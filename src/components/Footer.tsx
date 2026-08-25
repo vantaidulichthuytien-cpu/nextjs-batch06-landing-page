@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Headset, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import TrackedLink from "./TrackedLink";
 import {
   SITE_NAME,
   SITE_PHONE,
@@ -8,6 +9,7 @@ import {
   SITE_EMAIL,
   SITE_ADDRESS,
   SITE_FACEBOOK_URL,
+  SITE_ZALO_URL,
 } from "@/lib/site";
 import { vehicles } from "@/lib/vehicles";
 
@@ -45,7 +47,9 @@ export default function Footer() {
     <>
       <div className="bg-blue-600">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 py-5 sm:grid-cols-3 lg:px-8">
-          <a
+          <TrackedLink
+            loai="goi"
+            viTri="footer"
             href={`tel:${SITE_PHONE}`}
             className="flex items-center justify-center gap-3 text-white sm:justify-start"
           >
@@ -54,7 +58,7 @@ export default function Footer() {
               Gọi ngay 24/7
               <span className="block font-semibold">{SITE_PHONE_DISPLAY}</span>
             </span>
-          </a>
+          </TrackedLink>
           <a
             href={`mailto:${SITE_EMAIL}`}
             className="flex items-center justify-center gap-3 text-white sm:justify-start"
@@ -65,10 +69,10 @@ export default function Footer() {
               <span className="block truncate font-semibold">{SITE_EMAIL}</span>
             </span>
           </a>
-          <a
-            href="https://zalo.me"
-            target="_blank"
-            rel="noopener noreferrer"
+          <TrackedLink
+            loai="zalo"
+            viTri="footer"
+            href={SITE_ZALO_URL}
             className="flex items-center justify-center gap-3 text-white sm:justify-start"
           >
             <MessageCircle className="size-5 shrink-0" />
@@ -76,7 +80,7 @@ export default function Footer() {
               Cần hỗ trợ?
               <span className="block font-semibold">Chat Zalo với chúng tôi</span>
             </span>
-          </a>
+          </TrackedLink>
         </div>
       </div>
       <footer className="relative border-t border-white/10 bg-slate-900 pt-16 pb-8">
@@ -91,7 +95,7 @@ export default function Footer() {
               className="h-16 w-auto"
             />
             <p className="mt-4 text-sm text-slate-400">
-              Dịch vụ cho thuê xe du lịch từ 4 đến 45 chỗ, đồng hành cùng mọi
+              Dịch vụ cho thuê xe du lịch từ 4 đến 47 chỗ, đồng hành cùng mọi
               hành trình của bạn.
             </p>
             <div className="mt-6 flex gap-3">
@@ -139,9 +143,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="size-4 shrink-0 text-blue-400" />
-                <a href={`tel:${SITE_PHONE}`} className="hover:text-white">
+                <TrackedLink
+                  loai="goi"
+                  viTri="footer-thong-tin"
+                  href={`tel:${SITE_PHONE}`}
+                  className="hover:text-white"
+                >
                   {SITE_PHONE_DISPLAY}
-                </a>
+                </TrackedLink>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="size-4 shrink-0 text-blue-400" />

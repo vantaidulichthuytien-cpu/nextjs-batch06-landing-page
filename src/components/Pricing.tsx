@@ -1,115 +1,127 @@
-import { Check } from "lucide-react";
+import { Check, X, Route, FileText, Clock4 } from "lucide-react";
 import Reveal from "./Reveal";
 
-const plans = [
+/** Những gì đã nằm trong con số nhà xe báo. */
+const included = [
+  "Xăng dầu toàn hành trình",
+  "Phí cầu đường, bến bãi",
+  "Lương và chi phí ăn nghỉ của tài xế",
+  "Bảo hiểm hành khách theo quy định",
+];
+
+/** Những gì khách tự lo — nói trước để không ai bất ngờ ở cuối chuyến. */
+const excluded = [
+  "Vé tham quan, ăn uống của đoàn",
+  "Phí phát sinh do đổi lộ trình giữa chuyến",
+];
+
+const steps = [
   {
-    name: "Xe 4 - 7 chỗ",
-    price: "900.000đ",
-    unit: "/ngày",
-    description: "Phù hợp gia đình, cặp đôi, công tác ngắn ngày",
-    features: [
-      "Xe đời mới dưới 3 năm",
-      "Bảo hiểm hành khách",
-      "Tài xế thông thạo địa hình",
-      "Hỗ trợ đổi lịch linh hoạt",
-    ],
-    highlight: false,
+    icon: Route,
+    title: "Bạn gửi lộ trình",
+    desc: "Điểm đón, điểm đến, ngày đi, số khách. Mất khoảng một phút.",
   },
   {
-    name: "Xe 16 - 29 chỗ",
-    price: "1.800.000đ",
-    unit: "/ngày",
-    description: "Lựa chọn phổ biến nhất cho nhóm và công ty",
-    features: [
-      "Xe đời mới, ghế êm ái",
-      "Bảo hiểm toàn diện",
-      "Tài xế chuyên nghiệp trên 5 năm",
-      "Hỗ trợ 24/7",
-      "Miễn phí chờ 2 giờ",
-    ],
-    highlight: true,
+    icon: Clock4,
+    title: "Nhà xe báo giá trong 5 phút",
+    desc: "Một con số trọn gói cho đúng chuyến của bạn, không phải giá chung chung.",
   },
   {
-    name: "Xe 35 - 45 chỗ",
-    price: "3.200.000đ",
-    unit: "/ngày",
-    description: "Dành cho hội nghị, sự kiện, đoàn khách lớn",
-    features: [
-      "Xe cao cấp, điều hòa 2 chiều",
-      "Bảo hiểm toàn diện",
-      "Tài xế + phụ xe hỗ trợ",
-      "Ưu tiên đặt xe theo mùa cao điểm",
-    ],
-    highlight: false,
+    icon: FileText,
+    title: "Chốt giá vào hợp đồng",
+    desc: "Con số đã báo được ghi vào hợp đồng. Cuối chuyến trả đúng số đó.",
   },
 ];
 
 export default function Pricing() {
   return (
-    <section id="bang-gia" className="relative bg-slate-50 py-20 sm:py-28">
+    <section id="bao-gia" className="relative bg-slate-50 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-wider text-blue-600">
-            Bảng giá
+            Báo giá
           </span>
           <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
-            Giá thuê minh bạch, không phát sinh
+            Mỗi chuyến một giá, và giá đó không đổi
           </h2>
           <p className="mt-4 text-slate-500">
-            Giá tham khảo, tùy chỉnh theo lộ trình và thời gian thuê thực tế.
+            Thuê xe đi Vũng Tàu một ngày và đi Nha Trang bốn ngày không thể cùng
+            một mức giá. Nên thay vì treo một con số chung chung rồi tính thêm
+            sau, nhà xe báo giá riêng cho đúng lộ trình của bạn — và giữ nguyên
+            con số đó tới cuối chuyến.
           </p>
         </Reveal>
 
         <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {plans.map((plan, index) => (
+          {steps.map((step, index) => (
             <Reveal
-              key={plan.name}
+              key={step.title}
               delay={index * 100}
-              className={`relative rounded-3xl border p-8 ${
-                plan.highlight
-                  ? "border-blue-400 bg-white shadow-2xl shadow-blue-500/10"
-                  : "border-slate-200 bg-white"
-              }`}
+              className="rounded-2xl border border-slate-200 bg-white p-6"
             >
-              {plan.highlight && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-blue-500 px-4 py-1 text-xs font-semibold text-white">
-                  Phổ biến nhất
+              <div className="flex items-center gap-3">
+                <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <step.icon className="size-5" />
                 </span>
-              )}
-              <h3 className="text-lg font-semibold text-slate-900">{plan.name}</h3>
-              <p className="mt-2 text-sm text-slate-500">{plan.description}</p>
-              <p className="mt-6 flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold text-slate-900">
-                  {plan.price}
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Bước {index + 1}
                 </span>
-                <span className="text-sm text-slate-500">{plan.unit}</span>
-              </p>
-
-              <ul className="mt-8 space-y-3">
-                {plan.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-start gap-3 text-sm text-slate-600"
-                  >
-                    <Check className="mt-0.5 size-4 shrink-0 text-blue-500" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="/#lien-he"
-                className={`mt-8 block rounded-lg px-5 py-3 text-center text-sm font-semibold transition-transform hover:scale-105 ${
-                  plan.highlight
-                    ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30 hover:bg-blue-400"
-                    : "border border-slate-300 text-slate-900 hover:bg-slate-50"
-                }`}
-              >
-                Nhận báo giá
-              </a>
+              </div>
+              <h3 className="mt-4 font-semibold text-slate-900">{step.title}</h3>
+              <p className="mt-2 text-sm text-slate-500">{step.desc}</p>
             </Reveal>
           ))}
         </div>
+
+        <Reveal
+          delay={150}
+          className="mt-8 grid grid-cols-1 gap-6 rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 lg:grid-cols-2"
+        >
+          <div>
+            <h3 className="font-semibold text-slate-900">
+              Giá nhà xe báo đã bao gồm
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {included.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-sm text-slate-600"
+                >
+                  <Check className="mt-0.5 size-4 shrink-0 text-blue-600" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-slate-900">Chưa bao gồm</h3>
+            <ul className="mt-4 space-y-3">
+              {excluded.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-sm text-slate-600"
+                >
+                  <X className="mt-0.5 size-4 shrink-0 text-slate-400" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 rounded-xl bg-blue-50 px-4 py-3 text-sm text-slate-700">
+              Ngoài hai khoản trên, không có chi phí nào khác phát sinh sau khi
+              đã chốt hợp đồng.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={200} className="mt-10 text-center">
+          <a
+            href="/#hero"
+            className="inline-flex items-center justify-center rounded-lg bg-blue-500 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition-colors hover:bg-blue-400"
+          >
+            Gửi lộ trình để nhận báo giá
+          </a>
+        </Reveal>
       </div>
     </section>
   );

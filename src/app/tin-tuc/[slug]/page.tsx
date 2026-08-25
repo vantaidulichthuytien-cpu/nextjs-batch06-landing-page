@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import TrackedLink from "@/components/TrackedLink";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import { posts, getPost } from "@/lib/posts";
 import { SITE_URL, SITE_NAME, SITE_PHONE, SITE_PHONE_DISPLAY } from "@/lib/site";
@@ -154,13 +155,15 @@ export default async function BlogPostPage({
               xe đời mới, tài xế chuyên nghiệp.
             </p>
             <div className="mt-6 flex flex-col justify-center gap-4 sm:flex-row">
-              <a
+              <TrackedLink
+                loai="goi"
+                viTri="trang-tin-tuc"
                 href={`tel:${SITE_PHONE}`}
                 className="flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-blue-700 transition-transform hover:scale-105"
               >
                 <Phone className="size-4" />
                 Gọi ngay {SITE_PHONE_DISPLAY}
-              </a>
+              </TrackedLink>
               <Link
                 href="/lien-he"
                 className="flex items-center justify-center gap-2 rounded-lg border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"

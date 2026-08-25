@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import BookingForm from "@/components/BookingForm";
 import Reveal from "@/components/Reveal";
+import TrackedLink from "@/components/TrackedLink";
 import {
   SITE_URL,
   SITE_NAME,
@@ -12,11 +13,12 @@ import {
   SITE_PHONE_DISPLAY,
   SITE_EMAIL,
   SITE_ADDRESS,
+  SITE_ZALO_URL,
 } from "@/lib/site";
 
 const title = "Liên Hệ - Nhà Xe Thủy Tiên";
 const description =
-  "Liên hệ Nhà Xe Thủy Tiên để nhận báo giá thuê xe du lịch từ 4 đến 45 chỗ trong 5 phút. Gọi hotline, chat Zalo hoặc gửi yêu cầu đặt xe ngay.";
+  "Liên hệ Nhà Xe Thủy Tiên để nhận báo giá thuê xe du lịch từ 4 đến 47 chỗ trong 5 phút. Gọi hotline, chat Zalo hoặc gửi yêu cầu đặt xe ngay.";
 
 export const metadata: Metadata = {
   title,
@@ -127,15 +129,15 @@ export default function ContactPage() {
                   );
                 })}
 
-                <a
-                  href="https://zalo.me"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <TrackedLink
+                  loai="zalo"
+                  viTri="trang-lien-he"
+                  href={SITE_ZALO_URL}
                   className="flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-5 py-4 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-transform hover:scale-[1.02] hover:bg-blue-500"
                 >
                   <MessageCircle className="size-4" />
                   Chat Zalo tư vấn ngay
-                </a>
+                </TrackedLink>
               </div>
             </Reveal>
           </div>

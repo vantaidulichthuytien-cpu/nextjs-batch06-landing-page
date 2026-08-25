@@ -130,12 +130,12 @@ export const posts: Post[] = [
     ],
   },
   {
-    slug: "thue-xe-45-cho-cho-doanh-nghiep-can-luu-y-gi",
-    title: "Thuê xe 45 chỗ cho sự kiện doanh nghiệp cần lưu ý gì?",
+    slug: "thue-xe-47-cho-cho-doanh-nghiep-can-luu-y-gi",
+    title: "Thuê xe 47 chỗ cho sự kiện doanh nghiệp cần lưu ý gì?",
     excerpt:
       "Những yếu tố doanh nghiệp cần cân nhắc khi thuê xe lớn phục vụ hội nghị, team building hoặc sự kiện đông người.",
     metaDescription:
-      "Thuê xe 45 chỗ cho sự kiện doanh nghiệp: cách chọn nhà xe uy tín, thương lượng hợp đồng dài hạn và đảm bảo an toàn cho đoàn khách đông người.",
+      "Thuê xe 47 chỗ cho sự kiện doanh nghiệp: cách chọn nhà xe uy tín, thương lượng hợp đồng dài hạn và đảm bảo an toàn cho đoàn khách đông người.",
     coverImage:
       "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1200&q=80",
     category: "Doanh nghiệp",

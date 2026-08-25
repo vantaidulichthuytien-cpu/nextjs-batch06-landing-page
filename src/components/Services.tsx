@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Users, ArrowRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { vehicles } from "@/lib/vehicles";
@@ -17,10 +18,10 @@ export default function Services() {
             </h2>
           </Reveal>
           <a
-            href="/#bang-gia"
+            href="/#bao-gia"
             className="hidden items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700 sm:flex"
           >
-            Xem bảng giá
+            Cách nhà xe báo giá
             <ArrowRight className="size-4" />
           </a>
         </div>
@@ -34,11 +35,12 @@ export default function Services() {
             >
               <Link href={`/xe/${vehicle.slug}`}>
                 <div className="relative h-44 overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={vehicle.image}
                     alt={vehicle.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <span className="absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full bg-slate-900/80 px-3 py-1 text-xs font-medium text-white backdrop-blur">
                     <Users className="size-3.5" />
@@ -48,15 +50,10 @@ export default function Services() {
                 <div className="p-5">
                   <h3 className="font-semibold text-slate-900">{vehicle.name}</h3>
                   <p className="mt-2 text-sm text-slate-500">{vehicle.tagline}</p>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-sm font-semibold text-blue-600">
-                      Từ {vehicle.price}
-                    </span>
-                    <span className="flex items-center gap-1 text-sm font-medium text-slate-700 group-hover:text-blue-600">
-                      Xem chi tiết
-                      <ArrowRight className="size-3.5" />
-                    </span>
-                  </div>
+                  <span className="mt-4 flex items-center gap-1 text-sm font-medium text-slate-700 group-hover:text-blue-600">
+                    Xem chi tiết
+                    <ArrowRight className="size-3.5" />
+                  </span>
                 </div>
               </Link>
             </Reveal>

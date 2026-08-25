@@ -5,6 +5,7 @@ import { MapPin, Phone, ArrowRight, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import TrackedLink from "@/components/TrackedLink";
 import { destinations, getDestination } from "@/lib/destinations";
 import { SITE_URL, SITE_NAME, SITE_PHONE, SITE_PHONE_DISPLAY } from "@/lib/site";
 
@@ -139,23 +140,25 @@ export default async function DestinationPage({
               Đặt xe đi {destination.name} ngay hôm nay
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-blue-100">
-              Nhà Xe Thủy Tiên phục vụ tuyến {destination.name} với xe đời mới, tài
-              xế chuyên nghiệp, giá minh bạch. Liên hệ để nhận báo giá miễn phí
-              trong 5 phút.
+              Nhà Xe Thủy Tiên phục vụ tuyến {destination.name} với xe đời mới và
+              tài xế chuyên nghiệp. Gửi ngày đi và số khách, nhà xe báo giá trọn
+              gói cho đúng tuyến này trong 5 phút.
             </p>
             <div className="mt-6 flex flex-col justify-center gap-4 sm:flex-row">
-              <a
+              <TrackedLink
+                loai="goi"
+                viTri={`trang-tuyen-${destination.slug}`}
                 href={`tel:${SITE_PHONE}`}
                 className="flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-blue-700 transition-transform hover:scale-105"
               >
                 <Phone className="size-4" />
                 Gọi ngay {SITE_PHONE_DISPLAY}
-              </a>
+              </TrackedLink>
               <Link
-                href="/#lien-he"
+                href="/#hero"
                 className="flex items-center justify-center gap-2 rounded-lg border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
               >
-                Xem bảng giá thuê xe
+                Nhận báo giá cho tuyến này
                 <ArrowRight className="size-4" />
               </Link>
             </div>

@@ -29,4 +29,14 @@ export const faqs = [
     answer:
       "Tất cả xe trong hệ thống đều có bảo hiểm trách nhiệm dân sự và bảo hiểm hành khách theo quy định, đảm bảo an toàn tối đa cho bạn.",
   },
+  {
+    question: "Hủy chuyến thì có mất cọc không?",
+    answer:
+      "Hủy trước ngày khởi hành trên 7 ngày: hoàn 100% cọc. Từ 3-7 ngày: hoàn 50%. Dưới 3 ngày hoặc trong ngày khởi hành: không hoàn cọc. Đổi lịch trước trên 3 ngày được miễn phí 1 lần.",
+  },
+  {
+    question: "Nếu nhà xe không giao được xe thì sao?",
+    answer:
+      "Trong mọi trường hợp nhà xe không giao được xe đúng cam kết, bạn được hoàn 100% cọc và chúng tôi hỗ trợ tìm xe thay thế.",
+  },
 ];

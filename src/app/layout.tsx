@@ -1,11 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import MetaPixel from "@/components/MetaPixel";
 import "./globals.css";
 import {
   SITE_URL,
   SITE_NAME,
   SITE_PHONE,
-  SITE_ADDRESS,
+  SITE_EMAIL,
+  SITE_FACEBOOK_URL,
 } from "@/lib/site";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -14,9 +17,9 @@ const beVietnamPro = Be_Vietnam_Pro({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const title = "Nhà Xe Thủy Tiên - Cho Thuê Xe Du Lịch Từ 4 Đến 45 Chỗ";
+const title = "Nhà Xe Thủy Tiên - Cho Thuê Xe Du Lịch Từ 4 Đến 47 Chỗ";
 const description =
-  "Nhà Xe Thủy Tiên - Dịch vụ cho thuê xe du lịch từ 4 đến 45 chỗ tại Đồng Nai và toàn quốc. Giá minh bạch, tài xế chuyên nghiệp, hỗ trợ đặt xe 24/7.";
+  "Nhà Xe Thủy Tiên - Cho thuê xe du lịch 4 đến 47 chỗ kèm tài xế tại Đồng Nai. Gửi lộ trình, nhận báo giá trọn gói trong 5 phút, chốt giá vào hợp đồng. Hỗ trợ 24/7.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -31,7 +34,7 @@ export const metadata: Metadata = {
     "thuê xe 7 chỗ",
     "thuê xe 16 chỗ",
     "thuê xe 29 chỗ",
-    "thuê xe 45 chỗ",
+    "thuê xe 47 chỗ",
     "cho thuê xe Đồng Nai",
     "nhà xe Thủy Tiên",
   ],
@@ -70,20 +73,52 @@ export const viewport: Viewport = {
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  // AutoRental sát nghĩa hơn LocalBusiness chung chung cho dịch vụ thuê xe.
+  "@type": ["LocalBusiness", "AutoRental"],
+  "@id": `${SITE_URL}/#business`,
   name: SITE_NAME,
+  description,
   image: `${SITE_URL}/logo.png`,
   url: SITE_URL,
   telephone: `+84${SITE_PHONE.slice(1)}`,
+  email: SITE_EMAIL,
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
-    streetAddress: SITE_ADDRESS,
+    streetAddress: "1023/34 Khu Phố 13, Phường Tam Hiệp",
+    addressLocality: "TP. Đồng Nai",
     addressRegion: "Đồng Nai",
     addressCountry: "VN",
   },
-  areaServed: "VN",
-  serviceType: "Cho thuê xe du lịch",
+  // Khai cụ thể thay vì "VN": khai toàn quốc làm loãng tín hiệu SEO địa phương.
+  areaServed: [
+    { "@type": "City", name: "Biên Hòa" },
+    { "@type": "AdministrativeArea", name: "Đồng Nai" },
+    { "@type": "City", name: "TP. Hồ Chí Minh" },
+    { "@type": "City", name: "Vũng Tàu" },
+    { "@type": "City", name: "Đà Lạt" },
+    { "@type": "City", name: "Phan Thiết" },
+    { "@type": "City", name: "Nha Trang" },
+  ],
+  // Trang tuyên bố hỗ trợ 24/7 — khai đúng như vậy để Google biết.
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "00:00",
+    closes: "23:59",
+  },
+  sameAs: [SITE_FACEBOOK_URL],
+  serviceType: "Cho thuê xe du lịch kèm tài xế",
+  // TODO: bổ sung "geo" (vĩ độ/kinh độ) sau khi tạo Google Business Profile,
+  // và "aggregateRating" khi đã có review thật trên Google Maps.
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -93,10 +128,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${beVietnamPro.variable} h-full antialiased`}
     >
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        />
+        {/*
+          Đã bỏ animate.css tải từ cdnjs: nó là stylesheet chặn render trong
+          <head>, trang phải chờ tải xong từ máy chủ bên ngoài mới vẽ được.
+          Các hiệu ứng tương đương giờ nằm trong globals.css.
+        */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
@@ -104,6 +140,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col bg-white font-sans">
         {children}
+        {/*
+          Đo lường. Cả hai đều tự tắt nếu chưa cấu hình ID trong .env.local,
+          nên để đây an toàn kể cả trước khi anh dán mã vào.
+        */}
+        <MetaPixel />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );

@@ -42,7 +42,7 @@ export default function FAQ() {
                   />
                 </button>
                 {isOpen && (
-                  <div className="animate__animated animate__fadeIn animate__faster px-6 pb-5 text-sm text-slate-500">
+                  <div className="reveal-fade px-6 pb-5 text-sm text-slate-500">
                     {faq.answer}
                   </div>
                 )}
