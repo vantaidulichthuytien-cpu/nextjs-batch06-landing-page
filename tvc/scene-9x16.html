@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<title>TVC Nhà Xe Thủy Tiên — 30s 9:16</title>
+<style>
+/* ---------- FONT: Be Vietnam Pro (OFL), subset latin + vietnamese ---------- */
+@font-face{font-family:BVP;font-style:normal;font-weight:400;font-display:block;
+  src:url(assets/fonts/be-vietnam-pro-vietnamese-400-normal.woff2) format('woff2');
+  unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;}
+@font-face{font-family:BVP;font-style:normal;font-weight:400;font-display:block;
+  src:url(assets/fonts/be-vietnam-pro-latin-400-normal.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:BVP;font-style:normal;font-weight:600;font-display:block;
+  src:url(assets/fonts/be-vietnam-pro-vietnamese-600-normal.woff2) format('woff2');
+  unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;}
+@font-face{font-family:BVP;font-style:normal;font-weight:600;font-display:block;
+  src:url(assets/fonts/be-vietnam-pro-latin-600-normal.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:BVP;font-style:normal;font-weight:700;font-display:block;
+  src:url(assets/fonts/be-vietnam-pro-vietnamese-700-normal.woff2) format('woff2');
+  unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;}
+@font-face{font-family:BVP;font-style:normal;font-weight:700;font-display:block;
+  src:url(assets/fonts/be-vietnam-pro-latin-700-normal.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:BVP;font-style:normal;font-weight:800;font-display:block;
+  src:url(assets/fonts/be-vietnam-pro-vietnamese-800-normal.woff2) format('woff2');
+  unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;}
+@font-face{font-family:BVP;font-style:normal;font-weight:800;font-display:block;
+  src:url(assets/fonts/be-vietnam-pro-latin-800-normal.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+
+:root{
+  --ink:#0A1526; --ink2:#132339; --teal:#17A8B4; --teal-l:#4ED4DE; --blue:#2563EB;
+  --amber:#FFC53D; --slate:#64748B; --line:#E2E8F0; --paper:#F1F5F9;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#000}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#000;
+  font-family:BVP,system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+.scene{position:absolute;inset:0;overflow:hidden;will-change:opacity,transform}
+.bg{position:absolute;inset:-6%;width:112%;height:112%;object-fit:cover;will-change:transform}
+.fill{position:absolute;inset:0}
+.vig{background:radial-gradient(120% 80% at 50% 42%,rgba(0,0,0,0) 30%,rgba(0,0,0,.6) 100%)}
+
+/* ---------- S1 : hook ---------- */
+.s1-shade{background:linear-gradient(180deg,rgba(6,12,22,.92) 0%,rgba(6,12,22,.72) 34%,rgba(6,12,22,.42) 58%,rgba(6,12,22,.78) 100%)}
+.s1-wrap{position:absolute;left:72px;right:72px;top:330px}
+.s1-kick{font-size:26px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-l)}
+.s1-h{font-size:84px;font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-top:22px}
+.s1-h em{font-style:normal;color:var(--amber)}
+.chip{display:flex;align-items:center;gap:18px;margin-top:22px;padding:18px 26px;width:max-content;max-width:936px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-left:6px solid #F2544B;border-radius:14px;
+  font-size:33px;font-weight:600;color:#E6EDF7}
+.chip .x{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:#F2544B;display:grid;place-items:center}
+.chip .x svg{width:19px;height:19px}
+
+/* ---------- S2 : brand ---------- */
+.s2{background:#fff;color:var(--ink)}
+.s2-glow{background:radial-gradient(66% 44% at 50% 42%,rgba(23,168,180,.18) 0%,rgba(255,255,255,0) 70%)}
+.s2-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 70px}
+.s2-logo{width:800px;height:auto}
+.s2-rule{width:190px;height:5px;background:var(--teal);border-radius:99px;margin:44px 0 40px}
+.s2-h{font-size:64px;font-weight:800;letter-spacing:-.02em;line-height:1.16}
+.s2-h b{color:var(--teal)}
+.s2-sub{margin-top:22px;font-size:34px;font-weight:600;color:var(--slate)}
+.s2-kick{position:absolute;bottom:250px;left:0;right:0;text-align:center;font-size:25px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:#94A3B8}
+
+/* ---------- S3 : quy trình ---------- */
+.s3{background:var(--paper);color:var(--ink)}
+.s3-grid{position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(148,163,184,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.18) 1px,transparent 1px);
+  background-size:72px 72px}
+.s3-head{position:absolute;left:72px;right:72px;top:210px}
+.s3-kick{font-size:24px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+.s3-h{margin-top:14px;font-size:66px;font-weight:800;letter-spacing:-.02em;line-height:1.12}
+.s3-row{position:absolute;left:72px;right:72px;top:520px;display:flex;flex-direction:column;gap:26px}
+.card{display:flex;gap:28px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:34px 34px 38px;
+  box-shadow:0 24px 50px -28px rgba(15,23,42,.42)}
+.card .n{flex:0 0 auto;width:68px;height:68px;border-radius:20px;background:linear-gradient(140deg,var(--teal),#0E8E99);
+  display:grid;place-items:center;font-size:32px;font-weight:800;color:#fff}
+.card h3{font-size:40px;font-weight:800;letter-spacing:-.01em;line-height:1.14}
+.card p{margin-top:12px;font-size:27px;font-weight:400;color:var(--slate);line-height:1.4}
+.s3-strip{position:absolute;left:72px;right:72px;bottom:300px;background:var(--ink);border-radius:20px;
+  padding:26px 32px;display:flex;align-items:center;gap:18px 24px;flex-wrap:wrap}
+.s3-strip .lbl{font-size:23px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-l);width:100%}
+.s3-strip .it{font-size:27px;font-weight:600;color:#E2E8F0;display:flex;align-items:center;gap:10px}
+.s3-strip .it svg{width:22px;height:22px;color:var(--teal-l)}
+.stamp{position:absolute;right:60px;bottom:520px;transform-origin:center;
+  border:6px solid var(--amber);color:var(--amber);border-radius:18px;padding:14px 26px;
+  font-size:38px;font-weight:800;letter-spacing:.04em;background:rgba(10,21,38,.94)}
+
+/* ---------- S4 : đội xe (ảnh trên, bảng chữ dưới) ---------- */
+.veh{position:absolute;inset:0;overflow:hidden;background:var(--ink)}
+.veh-photo{position:absolute;left:0;right:0;top:0;height:1180px;overflow:hidden}
+.veh-photo .bg{inset:-6%;width:112%;height:112%}
+.veh-shade{position:absolute;inset:0;background:
+  linear-gradient(to top,rgba(10,21,38,1) 0%,rgba(10,21,38,.35) 16%,rgba(10,21,38,0) 34%),
+  linear-gradient(to bottom,rgba(6,12,22,.78) 0%,rgba(6,12,22,0) 26%)}
+.veh-panel{position:absolute;left:0;right:0;top:1180px;bottom:0;background:var(--ink)}
+.veh-txt{position:absolute;left:72px;right:72px;top:1252px}
+.veh-seat{font-size:132px;font-weight:800;letter-spacing:-.03em;line-height:.96}
+.veh-seat span{color:var(--teal-l)}
+.veh-name{margin-top:20px;font-size:36px;font-weight:600;color:#DCE7F5}
+.s4-kick{position:absolute;left:72px;top:150px;font-size:25px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--teal-l)}
+.s4-dots{position:absolute;left:72px;top:1560px;display:flex;gap:12px}
+.s4-dots i{width:58px;height:7px;border-radius:99px;background:rgba(255,255,255,.28);display:block}
+.s4-dots i.on{background:var(--teal-l)}
+
+/* ---------- S5 : cam kết ---------- */
+.s5{background:radial-gradient(80% 60% at 15% 4%,#16304F 0%,var(--ink) 52%,#060D18 100%)}
+.s5-glow{background:radial-gradient(48% 34% at 82% 74%,rgba(23,168,180,.3) 0%,rgba(0,0,0,0) 70%)}
+.s5-h{position:absolute;left:70px;right:70px;top:270px;text-align:center;font-size:62px;font-weight:800;
+  letter-spacing:-.02em;line-height:1.16}
+.s5-h b{color:var(--teal-l)}
+.s5-row{position:absolute;left:70px;right:70px;top:500px;display:flex;flex-wrap:wrap;gap:26px}
+.pill{flex:1 1 calc(50% - 13px);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:24px;padding:32px 28px 36px}
+.pill .ic{width:66px;height:66px;border-radius:18px;background:rgba(78,212,222,.14);display:grid;place-items:center;color:var(--teal-l)}
+.pill .ic svg{width:34px;height:34px}
+.pill h4{margin-top:22px;font-size:33px;font-weight:800;line-height:1.18;letter-spacing:-.01em}
+.pill p{margin-top:12px;font-size:24px;color:#93A6BF;line-height:1.4}
+.ticker-wrap{position:absolute;left:0;right:0;top:1330px;height:88px;overflow:hidden;
+  border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);
+  display:flex;align-items:center}
+.ticker{display:flex;gap:44px;white-space:nowrap;font-size:36px;font-weight:700;color:#CBD5E1;will-change:transform}
+.ticker b{color:var(--teal-l);font-weight:800}
+
+/* ---------- S6 : CTA ---------- */
+.s6{background:linear-gradient(150deg,#0E8E99 0%,var(--teal) 38%,#1E7FD6 100%);color:#fff}
+.s6-glow{background:radial-gradient(60% 40% at 50% 34%,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 65%)}
+.s6-c{position:absolute;left:0;right:0;top:400px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 60px}
+.s6-logo{width:520px;height:auto;background:#fff;border-radius:24px;padding:16px 26px}
+.s6-h{margin-top:52px;font-size:54px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.hot{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:4px;background:#fff;color:var(--ink);
+  border-radius:44px;padding:26px 54px;box-shadow:0 30px 70px -26px rgba(0,0,0,.6)}
+.hot .lb{font-size:23px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--slate)}
+.hot .row2{display:flex;align-items:center;gap:22px}
+.hot .ic{width:62px;height:62px;border-radius:50%;background:var(--teal);display:grid;place-items:center;color:#fff}
+.hot .ic svg{width:32px;height:32px}
+.hot .num{font-size:76px;font-weight:800;letter-spacing:.01em;line-height:1.1}
+.s6-row{margin-top:46px;display:flex;flex-direction:column;gap:14px;font-size:30px;font-weight:600;color:#EAFBFD}
+.s6-addr{position:absolute;bottom:560px;left:60px;right:60px;text-align:center;font-size:25px;color:rgba(255,255,255,.82)}
+
+.flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.wipe{position:absolute;inset:0;background:var(--teal);opacity:0}
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- ===== S1 HOOK ===== -->
+  <section class="scene" id="s1">
+    <img class="bg" id="s1bg" src="../public/xe45cho.jpg" style="object-position:34% center" alt="">
+    <div class="fill s1-shade"></div>
+    <div class="fill vig"></div>
+    <div class="s1-wrap">
+      <div class="s1-kick" id="s1k">Nhà Xe Thủy Tiên · Đồng Nai</div>
+      <h1 class="s1-h"><span id="s1a">Thuê xe du lịch,</span><br><span id="s1b"><em>sợ nhất</em> điều gì?</span></h1>
+      <div style="margin-top:40px">
+        <div class="chip c1"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Báo giá một đằng, tính một nẻo</div>
+        <div class="chip c2"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Xe cũ, tài xế lạ đường</div>
+        <div class="chip c3"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Cần gấp, gọi không ai bắt máy</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== S2 BRAND ===== -->
+  <section class="scene s2" id="s2">
+    <div class="fill s2-glow"></div>
+    <div class="s2-c">
+      <img class="s2-logo" id="s2logo" src="../public/logo.png" alt="Nhà Xe Thủy Tiên">
+      <div class="s2-rule" id="s2rule"></div>
+      <h2 class="s2-h" id="s2h">Cho thuê xe du lịch<br><b>4 – 47 chỗ</b></h2>
+      <p class="s2-sub" id="s2sub">kèm tài xế · Đồng Nai đi khắp cả nước</p>
+    </div>
+    <div class="s2-kick" id="s2kick">Đồng hành cùng chuyến đi của bạn</div>
+  </section>
+
+  <!-- ===== S3 QUY TRÌNH ===== -->
+  <section class="scene s3" id="s3">
+    <div class="s3-grid"></div>
+    <div class="s3-head">
+      <div class="s3-kick" id="s3k">Báo giá minh bạch</div>
+      <h2 class="s3-h" id="s3h">Chốt giá chỉ trong 5 phút</h2>
+    </div>
+    <div class="s3-row">
+      <div class="card k1"><div class="n">1</div><div><h3>Bạn gửi lộ trình</h3><p>Điểm đón, điểm đến, ngày đi, số khách. Mất khoảng một phút.</p></div></div>
+      <div class="card k2"><div class="n">2</div><div><h3>Nhà xe báo giá trong 5 phút</h3><p>Một con số trọn gói cho đúng chuyến của bạn, không phải giá chung chung.</p></div></div>
+      <div class="card k3"><div class="n">3</div><div><h3>Chốt giá vào hợp đồng</h3><p>Con số đã báo được ghi vào hợp đồng. Cuối chuyến trả đúng số đó.</p></div></div>
+    </div>
+    <div class="s3-strip" id="s3strip">
+      <span class="lbl">Giá đã gồm</span>
+      <span class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 7"/></svg>Xăng dầu</span>
+      <span class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 7"/></svg>Cầu đường, bến bãi</span>
+      <span class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 7"/></svg>Lương, ăn nghỉ tài xế</span>
+      <span class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 7"/></svg>Bảo hiểm hành khách</span>
+    </div>
+    <div class="stamp" id="s3stamp">KHÔNG PHỤ PHÍ ẨN</div>
+  </section>
+
+  <!-- ===== S4 ĐỘI XE ===== -->
+  <section class="scene" id="s4">
+    <div class="veh v1">
+      <div class="veh-photo">
+        <img class="bg b1" src="../public/xe4cho.jpg" style="object-position:center 52%" alt="">
+        <div class="veh-shade"></div>
+      </div>
+      <div class="veh-panel"></div>
+      <div class="veh-txt"><div class="veh-seat">4 – 7 <span>CHỖ</span></div><div class="veh-name">Gia đình nhỏ, đưa đón sân bay</div></div>
+      <div class="s4-dots"><i class="on"></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="veh v2">
+      <div class="veh-photo">
+        <img class="bg b2" src="../public/xe16cho.jpg" style="object-position:36% center" alt="">
+        <div class="veh-shade"></div>
+      </div>
+      <div class="veh-panel"></div>
+      <div class="veh-txt"><div class="veh-seat">16 <span>CHỖ</span></div><div class="veh-name">Nhóm bạn, gia đình đông người</div></div>
+      <div class="s4-dots"><i></i><i class="on"></i><i></i><i></i></div>
+    </div>
+    <div class="veh v3">
+      <div class="veh-photo">
+        <img class="bg b3" src="../public/xe29cho.jpg" style="object-position:32% center" alt="">
+        <div class="veh-shade"></div>
+      </div>
+      <div class="veh-panel"></div>
+      <div class="veh-txt"><div class="veh-seat">29 <span>CHỖ</span></div><div class="veh-name">Team building, đoàn thể, tour tham quan</div></div>
+      <div class="s4-dots"><i></i><i></i><i class="on"></i><i></i></div>
+    </div>
+    <div class="veh v4">
+      <div class="veh-photo">
+        <img class="bg b4" src="../public/xe47cho.jpg" style="object-position:30% center" alt="">
+        <div class="veh-shade"></div>
+      </div>
+      <div class="veh-panel"></div>
+      <div class="veh-txt"><div class="veh-seat">47 <span>CHỖ</span></div><div class="veh-name">Hội nghị, sự kiện, đoàn khách lớn</div></div>
+      <div class="s4-dots"><i></i><i></i><i></i><i class="on"></i></div>
+    </div>
+    <div class="s4-kick" id="s4k">Đội xe đời mới</div>
+  </section>
+
+  <!-- ===== S5 CAM KẾT ===== -->
+  <section class="scene s5" id="s5">
+    <div class="fill s5-glow"></div>
+    <h2 class="s5-h" id="s5h">Một đầu mối,<br><b>lo trọn chuyến đi</b></h2>
+    <div class="s5-row">
+      <div class="pill p1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3.5v6c0 5-3.4 9.3-8 10.5C7.4 20.8 4 16.5 4 11.5v-6L12 2z"/><path d="M8.6 12.2l2.4 2.4 4.6-4.8"/></svg></div>
+        <h4>Bảo hiểm hành khách đầy đủ</h4><p>Xe đời mới, bảo dưỡng định kỳ trước mỗi chuyến.</p></div>
+      <div class="pill p2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.6V12l3.6 2.2"/></svg></div>
+        <h4>Trực máy 24/7</h4><p>Nhận cả chuyến gấp trong ngày, phản hồi ngay.</p></div>
+      <div class="pill p3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20c.7-3.4 3.4-5.2 6.5-5.2s5.8 1.8 6.5 5.2"/></svg></div>
+        <h4>Tài xế thông thạo cung đường</h4><p>Quen đường liên tỉnh và các cung đèo dốc.</p></div>
+      <div class="pill p4"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5l6-2.5 6 2.5 6-2.5v11.5l-6 2.5-6-2.5-6 2.5z"/><path d="M9 5v11.5M15 7.5V19"/></svg></div>
+        <h4>Đưa đón tận nơi</h4><p>Đón tại nhà, tại công ty hoặc điểm hẹn của đoàn.</p></div>
+    </div>
+    <div class="ticker-wrap"><div class="ticker" id="tick"></div></div>
+  </section>
+
+  <!-- ===== S6 CTA ===== -->
+  <section class="scene s6" id="s6">
+    <div class="fill s6-glow"></div>
+    <div class="s6-c">
+      <img class="s6-logo" id="s6logo" src="../public/logo.png" alt="Nhà Xe Thủy Tiên">
+      <h2 class="s6-h" id="s6h">Gửi lộ trình —<br>nhận báo giá ngay</h2>
+      <div class="hot" id="s6hot">
+        <span class="lb">Hotline · Zalo</span>
+        <span class="row2">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.5h3l1.6 4-2 1.4a12.4 12.4 0 006.3 6.3l1.4-2 4 1.6v3c0 .9-.8 1.7-1.7 1.6C10.7 19.9 4.1 13.3 3.5 5.2c-.1-.9.7-1.7 1.6-1.7z"/></svg></span>
+          <span class="num">0908 049 489</span>
+        </span>
+      </div>
+      <div class="s6-row" id="s6row"><span>thuytien.vercel.app</span><span>Fanpage: Công Ty Du Lịch Thủy Tiên</span></div>
+    </div>
+    <div class="s6-addr" id="s6addr">1023/34 Khu Phố 13, Phường Tam Hiệp, TP. Đồng Nai</div>
+  </section>
+
+  <div class="wipe" id="wipe"></div>
+  <div class="flash" id="flash"></div>
+</div>
+
+<script>
+/* =========================================================================
+   TVC engine — tất định theo thời gian (seek được từng frame để render).
+   Bản khung dọc 9:16 cho TikTok / Reels / Story. Mốc thời gian giữ nguyên
+   như bản 16:9, chỉ dựng lại bố cục từng cảnh theo chiều dọc.
+   ========================================================================= */
+window.TVC = { fps: 30, duration: 30, width: 1080, height: 1920 };
+
+const EASE = {
+  lin: t => t,
+  out: t => 1 - Math.pow(1 - t, 3),
+  out5: t => 1 - Math.pow(1 - t, 5),
+  in2: t => t * t,
+  io: t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2,
+  back: t => { const c1=1.70158, c3=c1+1; return 1 + c3*Math.pow(t-1,3) + c1*Math.pow(t-1,2); },
+};
+const DEF = { o:1, x:0, y:0, s:1, r:0, b:0, br:1, w:100 };
+const REG = new Map();
+
+function anim(sel, t0, dur, from, to, ease='out'){
+  document.querySelectorAll(sel).forEach(el => {
+    if(!REG.has(el)) REG.set(el, []);
+    REG.get(el).push({ t0, t1: t0 + dur, from, to, ease });
+  });
+}
+/** Cùng một hiệu ứng cho nhiều phần tử, lệch nhau `stag` giây. */
+function animEach(sels, t0, dur, stag, from, to, ease='out'){
+  sels.forEach((s, i) => anim(s, t0 + i*stag, dur, from, to, ease));
+}
+/** Hiện rồi ẩn cả scene. */
+function scene(sel, tIn, tOut, fadeIn=.35, fadeOut=.35){
+  anim(sel, 0, .001, {o:0}, {o:0}, 'lin');
+  anim(sel, tIn, fadeIn, {o:0}, {o:1}, 'out');
+  anim(sel, tOut, fadeOut, {o:1}, {o:0}, 'in2');
+}
+
+function stateAt(list, t){
+  const st = Object.assign({}, DEF), seen = {}, pend = {};
+  for(const s of list){
+    if(t <= s.t0){
+      for(const k in s.to){
+        if(seen[k] || pend[k]) continue;
+        st[k] = (k in s.from) ? s.from[k] : DEF[k];
+        pend[k] = 1;
+      }
+      continue;
+    }
+    const p = t >= s.t1 ? 1 : (t - s.t0) / (s.t1 - s.t0);
+    const e = EASE[s.ease](p);
+    for(const k in s.to){
+      const f = (k in s.from) ? s.from[k] : st[k];
+      st[k] = f + (s.to[k] - f) * e;
+      seen[k] = 1; pend[k] = 0;
+    }
+  }
+  return st;
+}
+
+function paint(el, st){
+  el.style.opacity = st.o;
+  el.style.transform = 'translate3d(' + st.x.toFixed(3) + 'px,' + st.y.toFixed(3) + 'px,0) scale(' + st.s.toFixed(5) + ') rotate(' + st.r.toFixed(3) + 'deg)';
+  let f = '';
+  if(st.b > .001) f += 'blur(' + st.b.toFixed(2) + 'px) ';
+  if(Math.abs(st.br - 1) > .001) f += 'brightness(' + st.br.toFixed(3) + ')';
+  el.style.filter = f;
+  el.style.clipPath = st.w < 99.99 ? 'inset(0 ' + (100 - st.w).toFixed(2) + '% 0 0)' : '';
+}
+
+window.seek = function(t){
+  REG.forEach((list, el) => paint(el, stateAt(list, t)));
+};
+
+/* ---------- Nội dung ticker (nhân đôi để chạy liền mạch) ---------- */
+(function(){
+  const routes = ['Đà Lạt','Nha Trang','Mũi Né – Phan Thiết','Vũng Tàu','TP. Hồ Chí Minh','Đà Lạt','Nha Trang','Mũi Né – Phan Thiết','Vũng Tàu','TP. Hồ Chí Minh'];
+  document.getElementById('tick').innerHTML =
+    routes.map(r => '<span>' + r + '</span>').join('<b>•</b>');
+})();
+
+/* =========================================================================
+   TIMELINE  (tổng 30.0s) — giống hệt bản 16:9 nên dùng chung file nhạc
+   S1 hook 0–4 | S2 brand 4–8 | S3 quy trình 8–14
+   S4 đội xe 14–22 | S5 cam kết 22–26 | S6 CTA 26–30
+   ========================================================================= */
+
+/* ---- S1 : nỗi lo của khách (0.0 – 4.0) ---- */
+scene('#s1', 0, 3.70, .12, .30);
+anim('#s1bg', 0, 4.0, {s:1.16, y:30}, {s:1.03, y:-12}, 'lin');
+anim('#s1k',  .22, .60, {o:0, y:24}, {o:1, y:0});
+anim('#s1a',  .45, .70, {o:0, y:52}, {o:1, y:0}, 'out5');
+anim('#s1b',  .85, .70, {o:0, y:52}, {o:1, y:0}, 'out5');
+animEach(['.c1','.c2','.c3'], 1.45, .48, .65, {o:0, x:-56}, {o:1, x:0}, 'out');
+animEach(['.c1','.c2','.c3'], 3.58, .26, .04, {o:1}, {o:0}, 'in2');
+
+/* ---- S2 : thương hiệu (4.0 – 8.0) ---- */
+scene('#s2', 3.95, 7.70, .28, .30);
+anim('#s2logo', 4.08, .90, {o:0, s:.80}, {o:1, s:1}, 'back');
+anim('#s2rule', 4.75, .55, {w:0}, {w:100}, 'io');
+anim('#s2h',    5.00, .75, {o:0, y:44}, {o:1, y:0}, 'out5');
+anim('#s2sub',  5.35, .75, {o:0, y:34}, {o:1, y:0}, 'out5');
+anim('#s2kick', 6.35, .70, {o:0, y:24}, {o:1, y:0});
+anim('#s2logo', 7.45, .45, {s:1}, {s:1.06}, 'in2');
+
+/* ---- S3 : quy trình báo giá (8.0 – 14.0) ---- */
+scene('#s3', 7.95, 13.70, .28, .30);
+anim('#s3k', 8.15, .60, {o:0, y:22}, {o:1, y:0});
+anim('#s3h', 8.30, .75, {o:0, y:46}, {o:1, y:0}, 'out5');
+animEach(['.k1','.k2','.k3'], 8.80, .80, .42, {o:0, y:76, s:.97}, {o:1, y:0, s:1}, 'out5');
+anim('#s3strip', 11.00, .75, {o:0, y:60}, {o:1, y:0}, 'out5');
+anim('#s3stamp', 12.00, .60, {o:0, s:1.55, r:-16}, {o:1, s:1, r:-9}, 'back');
+anim('#s3stamp', 12.90, .40, {s:1, r:-9}, {s:1.05, r:-9}, 'io');
+
+/* ---- S4 : đội xe — 4 shot × 2.0s, khớp đúng ô nhịp (14.0 – 22.0) ---- */
+scene('#s4', 13.95, 21.70, .30, .30);
+anim('#s4k', 14.25, .60, {o:0, y:20}, {o:1, y:0});
+anim('#s4k', 21.45, .35, {o:1}, {o:0}, 'in2');
+
+[['.v1','.b1',14.0],['.v2','.b2',16.0],['.v3','.b3',18.0],['.v4','.b4',20.0]].forEach(function(v, i){
+  const sel = v[0], bg = v[1], t = v[2];
+  anim(sel, 0, .001, {o:0}, {o:0}, 'lin');
+  anim(sel, t, .42, {o:0}, {o:1}, 'io');
+  if(i < 3) anim(sel, t + 2.0, .42, {o:1}, {o:0}, 'io');
+  anim(bg, t - .25, 2.7, {s:1.14, y:18}, {s:1.02, y:-10}, 'lin');
+  anim(sel + ' .veh-seat', t + .16, .70, {o:0, y:52}, {o:1, y:0}, 'out5');
+  anim(sel + ' .veh-name', t + .32, .70, {o:0, y:30}, {o:1, y:0}, 'out5');
+  anim(sel + ' .s4-dots', t + .28, .50, {o:0}, {o:1});
+});
+
+/* ---- S5 : cam kết + tuyến (22.0 – 26.0) ---- */
+scene('#s5', 21.95, 25.70, .30, .30);
+anim('#s5h', 22.15, .70, {o:0, y:40}, {o:1, y:0}, 'out5');
+animEach(['.p1','.p2','.p3','.p4'], 22.50, .70, .20, {o:0, y:64, s:.97}, {o:1, y:0, s:1}, 'out5');
+anim('.ticker-wrap', 22.85, .55, {o:0}, {o:1});
+anim('#tick', 22.00, 4.00, {x:0}, {x:-880}, 'lin');
+
+/* ---- S6 : CTA (26.0 – 30.0) ---- */
+scene('#s6', 25.95, 100, .32, .30);
+anim('#s6logo', 26.10, .70, {o:0, s:.86, y:-16}, {o:1, s:1, y:0}, 'back');
+anim('#s6h',    26.40, .70, {o:0, y:38}, {o:1, y:0}, 'out5');
+anim('#s6hot',  26.70, .75, {o:0, s:.90, y:34}, {o:1, s:1, y:0}, 'back');
+anim('#s6row',  27.20, .70, {o:0, y:26}, {o:1, y:0}, 'out5');
+anim('#s6addr', 27.45, .70, {o:0, y:20}, {o:1, y:0}, 'out5');
+/* nhịp đập nhẹ trên hotline, rơi đúng phách để mắt bám vào số điện thoại */
+anim('#s6hot', 28.00, .30, {s:1}, {s:1.045}, 'io');
+anim('#s6hot', 28.30, .40, {s:1.045}, {s:1}, 'io');
+anim('#s6hot', 29.00, .30, {s:1}, {s:1.045}, 'io');
+anim('#s6hot', 29.30, .40, {s:1.045}, {s:1}, 'io');
+
+/* ---- Chuyển cảnh: flash trắng ở cú cắt hook→brand, wipe teal ở các cú cắt sau ---- */
+anim('#flash', 0, .001, {o:0}, {o:0}, 'lin');
+anim('#flash', 3.88, .12, {o:0}, {o:.92}, 'out');
+anim('#flash', 4.00, .34, {o:.92}, {o:0}, 'in2');
+
+anim('#wipe', 0, .001, {o:0, w:0}, {o:0, w:0}, 'lin');
+[7.74, 13.74, 21.74, 25.74].forEach(function(t){
+  anim('#wipe', t, .001, {o:0, w:0}, {o:.85, w:0}, 'lin');
+  anim('#wipe', t, .26, {w:0}, {w:100}, 'io');
+  anim('#wipe', t + .26, .30, {o:.85}, {o:0}, 'in2');
+});
+
+window.seek(0);
+document.fonts.ready.then(function(){ window.__fontsReady = true; });
+</script>
+</body>
+</html>

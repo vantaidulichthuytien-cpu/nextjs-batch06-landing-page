@@ -1,8 +1,10 @@
 # Kịch bản TVC — Nhà Xe Thủy Tiên
 
 **Sản phẩm:** dịch vụ cho thuê xe du lịch 4 – 47 chỗ kèm tài xế
-**Bản chính:** 30 giây · 16:9 · 1920×1080 · 30 fps
-**File đã dựng:** `tvc/out/tvc-thuytien-16x9-30s.mp4` (hình + nhạc nền, **chưa có lời đọc**)
+**Thời lượng:** 30 giây · 30 fps · hai khung hình
+**File đã dựng** (hình + nhạc nền, **chưa có lời đọc**):
+`tvc/out/tvc-thuytien-16x9-30s.mp4` (1920×1080) và
+`tvc/out/tvc-thuytien-9x16-30s.mp4` (1080×1920)
 
 ---
 
@@ -117,7 +119,7 @@ Giọng gợi ý: nam trung, giọng Nam, tốc độ vừa (khoảng 5 âm ti�
 Dùng đúng file 30 giây, cắt lại theo mốc dưới đây (mọi mốc đều rơi đúng ô nhịp
 nên nhạc vẫn liền):
 
-**Bản 15 giây** — cho Reels/TikTok/Story, đổi sang khung dọc 9:16 khi cắt:
+**Bản 15 giây** — cắt từ file 9:16 đã có sẵn:
 `0:00–0:04` (nỗi lo) + `0:08–0:11` (bước 1–2 báo giá) + `0:14–0:18` (xe 4–7 và 16 chỗ) + `0:26–0:30` (chốt).
 
 **Bản 6 giây** — bumper nhận diện: `0:04–0:08` (thương hiệu) + `0:28–0:30` (hotline).
@@ -163,7 +165,8 @@ hạ âm lượng track gốc xuống khoảng −7 dB.
 
 | | |
 |---|---|
-| **Facebook / YouTube (16:9)** | Dùng thẳng `tvc-thuytien-16x9-30s.mp4` — 1920×1080, H.264, AAC, 8.4 MB |
-| **Ảnh đại diện** | `tvc/out/poster-16x9.jpg` (khung hình giây 2.6) |
+| **Facebook feed / YouTube (16:9)** | `tvc-thuytien-16x9-30s.mp4` — 1920×1080, H.264, AAC, 8.4 MB |
+| **TikTok / Reels / Story (9:16)** | `tvc-thuytien-9x16-30s.mp4` — 1080×1920, 7.5 MB. Chữ đã dừng trước mốc 1600 px nên không bị giao diện ứng dụng che |
+| **Ảnh đại diện** | `tvc/out/poster-16x9.jpg` và `poster-9x16.jpg` |
 | **Phụ đề** | Phần lớn khách xem tắt tiếng, nên toàn bộ thông điệp đã nằm sẵn trên hình. Nếu thêm phụ đề, đặt cách đáy ít nhất 120 px để không bị nút bấm của Facebook che. |
-| **Vùng an toàn** | Mọi chữ đã nằm trong khoảng 110 px cách mép — cắt sang 1:1 hoặc 4:5 vẫn không mất chữ, riêng khung 9:16 thì cần dựng lại bố cục. |
+| **Vùng an toàn** | Bản ngang: chữ cách mép ít nhất 110 px, cắt sang 1:1 hoặc 4:5 vẫn không mất chữ. Bản dọc: chữ nằm gọn trong khoảng 150–1600 px theo chiều cao. |
