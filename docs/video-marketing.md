@@ -234,3 +234,15 @@ cảm nhận ngay trên xe. Được một clip là:
 - và điền tên + trích dẫn vào `testimonials` để hiện trên website.
 
 Một đánh giá thật, có tên thật, mặt thật, giá trị hơn mười clip dàn dựng.
+
+---
+
+## 9. Bộ đồ họa có sẵn
+
+Tám khung hình 1080×1920 đã dựng sẵn cho các kịch bản trên nằm trong
+[`docs/video-assets/`](./video-assets/) — 5 khung đầy đủ và 3 lớp phủ nền trong
+suốt để chèn đè lên video quay bằng điện thoại.
+
+Chữ trên khung hình sửa được trong `docs/video-assets/generator/frames.html`,
+chạy lại `node render.mjs` là ra PNG mới. Xem
+[`docs/video-assets/README.md`](./video-assets/README.md) để biết cách chèn vào CapCut.

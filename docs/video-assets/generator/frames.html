@@ -1,0 +1,251 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="fonts/bvp.css">
+<style>
+  :root{
+    --teal:#0AA5B5; --teal-dark:#07818E; --ink:#0B1220; --ink-2:#16233A;
+    --white:#ffffff; --amber:#F5A524; --red:#E5484D; --muted:#94A3B8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#333;font-family:"Be Vietnam Pro",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .frame{
+    width:1080px;height:1920px;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
+    padding:300px 72px 400px;  /* safe zones: 15% top, ~20% bottom */
+  }
+  .transparent{background:transparent}
+  .dark{background:radial-gradient(120% 90% at 50% 0%,var(--ink-2) 0%,var(--ink) 65%)}
+  .light{background:#F6F8FB}
+
+  /* ---- shared bits ---- */
+  .eyebrow{font-size:34px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+  h1{font-size:96px;font-weight:900;line-height:1.06;letter-spacing:-.02em}
+  h1.sm{font-size:82px}
+  .dark h1,.dark .body{color:#fff}
+  .light h1{color:var(--ink)}
+  .body{font-size:40px;line-height:1.45;font-weight:400}
+  .light .body{color:#475569}
+  .rule{width:140px;height:10px;border-radius:99px;background:var(--teal);margin:36px 0 44px}
+  .spacer{flex:1}
+
+  .footer{display:flex;align-items:center;gap:32px;margin-top:56px}
+  .footer img{width:280px}
+  .footer .phone{font-size:52px;font-weight:900;letter-spacing:.01em}
+  .dark .footer .phone{color:#fff}
+  .light .footer .phone{color:var(--ink)}
+  .footer .phone small{display:block;font-size:26px;font-weight:600;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+
+  /* ---- hook overlay ---- */
+  .hook{justify-content:center;text-align:left}
+  .hook .tag{align-self:flex-start;background:var(--teal);color:#fff;font-size:34px;font-weight:800;
+    letter-spacing:.1em;text-transform:uppercase;padding:16px 30px;border-radius:14px;margin-bottom:40px}
+  .hook h1{font-size:112px;color:#fff;text-shadow:0 8px 40px rgba(0,0,0,.75),0 2px 8px rgba(0,0,0,.9)}
+  .hook .sub{margin-top:40px;font-size:44px;font-weight:600;color:#fff;
+    text-shadow:0 6px 24px rgba(0,0,0,.8)}
+  .hl{background:var(--amber);color:var(--ink);padding:0 14px;border-radius:10px;
+    box-decoration-break:clone;-webkit-box-decoration-break:clone;text-shadow:none}
+
+  /* ---- rows (hủy cọc) ---- */
+  .rows{display:flex;flex-direction:column;gap:30px}
+  .row{display:flex;align-items:center;gap:34px;background:rgba(255,255,255,.06);
+    border:2px solid rgba(255,255,255,.12);border-left:14px solid var(--teal);
+    border-radius:26px;padding:38px 40px}
+  .row .mark{width:92px;height:92px;flex:none;border-radius:24px;display:flex;
+    align-items:center;justify-content:center;font-size:54px;font-weight:900;color:#fff}
+  .row .txt{flex:1}
+  .row .when{font-size:34px;font-weight:600;color:#B9C6D9;margin-bottom:8px}
+  .row .what{font-size:60px;font-weight:900;line-height:1.05;color:#fff}
+  .row.ok{border-left-color:var(--teal)} .row.ok .mark{background:var(--teal)}
+  .row.mid{border-left-color:var(--amber)} .row.mid .mark{background:var(--amber);color:#231603}
+  .row.no{border-left-color:var(--red)} .row.no .mark{background:var(--red)}
+  .row.no .what{color:#FFB3B5}
+  .note{margin-top:38px;background:rgba(10,165,181,.16);border:2px solid rgba(10,165,181,.5);
+    border-radius:22px;padding:32px 38px;font-size:40px;font-weight:700;color:#7FE3EE;text-align:center}
+
+  /* ---- two column check list ---- */
+  .cols{display:flex;flex-direction:column;gap:44px}
+  .col h2{font-size:48px;font-weight:900;color:#fff;margin-bottom:26px;display:flex;align-items:center;gap:20px}
+  .col h2 .pip{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;
+    justify-content:center;font-size:34px;font-weight:900}
+  .col.yes h2 .pip{background:var(--teal);color:#fff}
+  .col.no h2 .pip{background:#33415C;color:#CBD5E1}
+  .col ul{list-style:none;display:flex;flex-direction:column;gap:20px}
+  .col li{font-size:42px;font-weight:600;color:#E2E8F0;display:flex;gap:22px;align-items:flex-start;line-height:1.25}
+  .col li::before{content:"";width:16px;height:16px;border-radius:99px;flex:none;margin-top:18px}
+  .col.yes li::before{background:var(--teal)}
+  .col.no li{color:#94A3B8}
+  .col.no li::before{background:#475569}
+
+  /* ---- vehicle table ---- */
+  .veh{display:flex;flex-direction:column;gap:22px}
+  .v{display:flex;align-items:center;gap:32px;background:#fff;border:3px solid #E2E8F0;
+    border-radius:26px;padding:34px 36px;box-shadow:0 10px 30px rgba(15,23,42,.06)}
+  .v .seats{width:250px;flex:none;text-align:center}
+  .v .seats b{display:block;font-size:62px;white-space:nowrap;font-weight:900;color:var(--teal);line-height:1}
+  .v .seats span{font-size:28px;font-weight:700;color:#94A3B8;letter-spacing:.08em;text-transform:uppercase}
+  .v .for{font-size:40px;font-weight:700;color:var(--ink);line-height:1.28}
+
+  /* ---- verify list ---- */
+  .verify{display:flex;flex-direction:column;gap:28px}
+  .vf{display:flex;gap:30px;align-items:flex-start;background:rgba(255,255,255,.06);
+    border:2px solid rgba(255,255,255,.12);border-radius:26px;padding:36px 38px}
+  .vf .n{width:76px;height:76px;flex:none;border-radius:20px;background:var(--teal);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900}
+  .vf .k{font-size:30px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+  .vf .v2{font-size:42px;font-weight:800;color:#fff;line-height:1.25}
+
+  /* ---- end card ---- */
+  .end{align-items:center;text-align:center;justify-content:center}
+  .end img.logo{width:620px;margin-bottom:56px}
+  .end .big{font-size:78px;font-weight:900;color:#fff;line-height:1.12}
+  .end .big em{font-style:normal;color:var(--teal)}
+  .end .pill{margin-top:56px;background:var(--teal);color:#fff;border-radius:99px;
+    padding:34px 64px;font-size:76px;font-weight:900;letter-spacing:.01em;
+    box-shadow:0 20px 60px rgba(10,165,181,.45)}
+  .end .site{margin-top:36px;font-size:38px;font-weight:600;color:#94A3B8}
+
+  /* ---- bottom CTA overlay strip ---- */
+  .strip{justify-content:flex-end;padding:0 0 300px}
+  .strip .bar{margin:0 56px;background:rgba(11,18,32,.92);border:3px solid rgba(10,165,181,.6);
+    border-radius:34px;padding:44px 48px;display:flex;align-items:center;gap:34px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .strip .bar img{width:210px;flex:none}
+  .strip .bar .t1{font-size:34px;font-weight:700;color:var(--teal);letter-spacing:.04em}
+  .strip .bar .t2{font-size:62px;font-weight:900;color:#fff;line-height:1.05;margin-top:6px}
+</style>
+
+<!-- 1. HOOK CLIP 1 — overlay trong suốt -->
+<div class="frame transparent hook" data-frame="01-hook-gia" data-alpha="1">
+  <span class="tag">Chuyện có thật</span>
+  <h1>Thuê xe <span class="hl">5 triệu</span><br>cuối chuyến trả <span class="hl">6 triệu rưỡi</span></h1>
+  <div class="sub">Phụ phí ẩn thường nằm ở đâu?</div>
+</div>
+
+<!-- 2. ĐÃ BAO GỒM / CHƯA BAO GỒM -->
+<div class="frame dark" data-frame="02-da-bao-gom">
+  <span class="eyebrow">Báo giá trọn gói</span>
+  <h1 class="sm">Một con số,<br>không cộng thêm</h1>
+  <div class="rule"></div>
+  <div class="cols">
+    <div class="col yes">
+      <h2><span class="pip">✓</span> Đã bao gồm</h2>
+      <ul>
+        <li>Xăng dầu toàn hành trình</li>
+        <li>Phí cầu đường, bến bãi</li>
+        <li>Lương và chi phí ăn nghỉ của tài xế</li>
+        <li>Bảo hiểm hành khách theo quy định</li>
+      </ul>
+    </div>
+    <div class="col no">
+      <h2><span class="pip">–</span> Khách tự lo</h2>
+      <ul>
+        <li>Vé tham quan, ăn uống của đoàn</li>
+        <li>Phát sinh do đổi lộ trình giữa chuyến</li>
+      </ul>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="footer">
+    <img src="logo.png" alt="">
+    <div class="phone"><small>Gọi / Zalo</small>0908 049 489</div>
+  </div>
+</div>
+
+<!-- 3. CHÍNH SÁCH HỦY CỌC -->
+<div class="frame dark" data-frame="03-huy-coc">
+  <span class="eyebrow">Chính sách rõ ràng</span>
+  <h1 class="sm">Hủy chuyến<br>có mất cọc không?</h1>
+  <div class="rule"></div>
+  <div class="rows">
+    <div class="row ok">
+      <div class="mark">✓</div>
+      <div class="txt"><div class="when">Hủy trước trên 7 ngày</div><div class="what">Hoàn 100% cọc</div></div>
+    </div>
+    <div class="row mid">
+      <div class="mark">!</div>
+      <div class="txt"><div class="when">Hủy trước 3 – 7 ngày</div><div class="what">Hoàn 50% cọc</div></div>
+    </div>
+    <div class="row no">
+      <div class="mark">✕</div>
+      <div class="txt"><div class="when">Dưới 3 ngày hoặc trong ngày đi</div><div class="what">Không hoàn cọc</div></div>
+    </div>
+  </div>
+  <div class="note">Đổi lịch trước 3 ngày: miễn phí 1 lần</div>
+  <div class="spacer"></div>
+  <div class="footer">
+    <img src="logo.png" alt="">
+    <div class="phone"><small>Gọi / Zalo</small>0908 049 489</div>
+  </div>
+</div>
+
+<!-- 4. CHỌN XE MẤY CHỖ -->
+<div class="frame light" data-frame="04-chon-xe">
+  <span class="eyebrow">Tư vấn nhanh</span>
+  <h1 class="sm">Đoàn của bạn<br>đi xe mấy chỗ?</h1>
+  <div class="rule"></div>
+  <div class="veh">
+    <div class="v"><div class="seats"><b>4–7</b><span>chỗ</span></div>
+      <div class="for">Gia đình nhỏ, cặp đôi,<br>đưa đón sân bay</div></div>
+    <div class="v"><div class="seats"><b>16</b><span>chỗ</span></div>
+      <div class="for">Nhóm bạn, gia đình đông,<br>đưa đón nhân viên</div></div>
+    <div class="v"><div class="seats"><b>29</b><span>chỗ</span></div>
+      <div class="for">Đoàn công ty, trường học,<br>team building</div></div>
+    <div class="v"><div class="seats"><b>45–47</b><span>chỗ</span></div>
+      <div class="for">Đoàn lớn, hội nghị,<br>tour dài ngày</div></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="body" style="font-weight:700;color:#0B1220;margin-top:40px">Nhớ tính cả vali — 14 người đi 3 ngày thì xe 16 chỗ đã chật.</div>
+  <div class="footer">
+    <img src="logo.png" alt="">
+    <div class="phone"><small>Gọi / Zalo</small>0908 049 489</div>
+  </div>
+</div>
+
+<!-- 5. KIỂM CHỨNG NHÀ XE -->
+<div class="frame dark" data-frame="05-kiem-chung">
+  <span class="eyebrow">Trước khi chuyển cọc</span>
+  <h1 class="sm">Nhà xe có địa chỉ,<br>có người thật</h1>
+  <div class="rule"></div>
+  <div class="verify">
+    <div class="vf"><div class="n">1</div><div>
+      <div class="k">Bãi xe ở đâu</div>
+      <div class="v2">1023/34 Khu Phố 13, P. Tam Hiệp,<br>TP. Đồng Nai</div></div></div>
+    <div class="vf"><div class="n">2</div><div>
+      <div class="k">Gọi có ai bắt máy</div>
+      <div class="v2">0908 049 489</div></div></div>
+    <div class="vf"><div class="n">3</div><div>
+      <div class="k">Fanpage chính thức</div>
+      <div class="v2">Công Ty Du Lịch Thủy Tiên</div></div></div>
+  </div>
+  <div class="note">Ghé coi xe trước khi đặt cọc</div>
+  <div class="spacer"></div>
+  <div class="footer">
+    <img src="logo.png" alt="">
+    <div class="phone"><small>Gọi / Zalo</small>0908 049 489</div>
+  </div>
+</div>
+
+<!-- 6. KẾT CLIP -->
+<div class="frame dark end" data-frame="06-ket-clip">
+  <img class="logo" src="logo.png" alt="">
+  <div class="big">Gửi lộ trình,<br><em>nhận giá trong 5 phút</em></div>
+  <div class="pill">0908 049 489</div>
+  <div class="site">thuytien.vercel.app</div>
+</div>
+
+<!-- 7. THANH CTA — overlay trong suốt -->
+<div class="frame transparent strip" data-frame="07-overlay-cta" data-alpha="1">
+  <div class="bar">
+    <img src="logo.png" alt="">
+    <div><div class="t1">Gửi lộ trình → giá trong 5 phút</div>
+      <div class="t2">0908 049 489</div></div>
+  </div>
+</div>
+
+<!-- 8. HOOK HỦY CỌC — overlay trong suốt -->
+<div class="frame transparent hook" data-frame="08-hook-huy-coc" data-alpha="1">
+  <span class="tag">Khách hỏi nhiều nhất</span>
+  <h1>Đặt cọc rồi<br>mà <span class="hl">bận đột xuất</span><br>thì sao?</h1>
+  <div class="sub">Trả lời trong 20 giây</div>
+</div>
