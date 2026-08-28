@@ -1,0 +1,10 @@
+<resources>
+    <color name="bg_top">#FF1B1035</color>
+    <color name="bg_bottom">#FF3A1C64</color>
+    <color name="accent">#FFFF5C8A</color>
+    <color name="accent_dark">#FFE23A6D</color>
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#B3FFFFFF</color>
+    <color name="track_inactive">#40FFFFFF</color>
+    <color name="ic_launcher_background">#FF3A1C64</color>
+</resources>

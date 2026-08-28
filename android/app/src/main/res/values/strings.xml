@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Máy Phát Nhạc</string>
+    <string name="song_title">Bài hát mẫu</string>
+    <string name="song_artist">Giai điệu demo</string>
+    <string name="play">Phát nhạc</string>
+    <string name="pause">Tạm dừng</string>
+    <string name="replay">Phát lại từ đầu</string>
+    <string name="time_zero">0:00</string>
+    <string name="load_error">Không mở được file nhạc.</string>
+</resources>
