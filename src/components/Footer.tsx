@@ -17,6 +17,7 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
   "Dịch vụ": vehicles.map((v) => ({ label: v.name, href: `/xe/${v.slug}` })),
   "Công ty": [
     { label: "Về chúng tôi", href: "/gioi-thieu" },
+    { label: "An toàn khi đi xe", href: "/an-toan" },
     { label: "Tin tức", href: "/tin-tuc" },
     { label: "Liên hệ", href: "/lien-he" },
   ],
