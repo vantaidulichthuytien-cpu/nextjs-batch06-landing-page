@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Reveal from "./Reveal";
@@ -30,13 +31,14 @@ export default function ServiceAreas() {
             <Reveal key={d.slug} delay={index * 80}>
               <Link
                 href={`/dia-diem/${d.slug}`}
-                className="group relative block overflow-hidden rounded-xl"
+                className="group relative block h-40 w-full overflow-hidden rounded-xl"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={d.heroImage.replace("w=1600", "w=600")}
                   alt={d.name}
-                  className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-slate-900/10 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-3">

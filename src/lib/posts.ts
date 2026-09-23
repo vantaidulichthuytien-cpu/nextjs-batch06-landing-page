@@ -164,11 +164,11 @@ export const posts: Post[] = [
   },
   {
     slug: "uu-dai-thue-xe-mua-le-tet",
-    title: "Ưu đãi thuê xe mùa lễ Tết - Đặt sớm để có giá tốt nhất",
+    title: "Ưu đãi thuê xe mùa lễ Tết - Đặt sớm để không hết xe",
     excerpt:
       "Cập nhật chương trình ưu đãi và lưu ý về giá thuê xe trong mùa cao điểm lễ, Tết tại Nhà Xe Thủy Tiên.",
     metaDescription:
-      "Cập nhật ưu đãi thuê xe mùa lễ Tết từ Nhà Xe Thủy Tiên: đặt xe sớm để giữ giá tốt, tránh tình trạng hết xe vào cao điểm.",
+      "Cập nhật ưu đãi thuê xe mùa lễ Tết từ Nhà Xe Thủy Tiên: đặt xe sớm để chủ động loại xe cần dùng, tránh tình trạng hết xe vào cao điểm.",
     coverImage:
       "https://images.unsplash.com/photo-1483721310020-03333e577078?w=1200&q=80",
     category: "Khuyến mãi",
@@ -178,7 +178,7 @@ export const posts: Post[] = [
       {
         heading: "Vì sao nên đặt xe sớm vào mùa cao điểm?",
         paragraphs: [
-          "Vào các dịp lễ lớn và Tết Nguyên Đán, nhu cầu thuê xe tăng cao đột biến khiến giá thuê có thể điều chỉnh và số lượng xe trống giảm nhanh. Đặt xe trước 2-4 tuần giúp khách hàng giữ được mức giá tốt và loại xe mong muốn.",
+          "Vào các dịp lễ lớn và Tết Nguyên Đán, nhu cầu thuê xe tăng cao đột biến khiến giá thuê có thể điều chỉnh và số lượng xe trống giảm nhanh. Đặt xe trước 2-4 tuần giúp khách hàng chủ động chọn được loại xe mong muốn trước khi hết xe.",
         ],
       },
       {

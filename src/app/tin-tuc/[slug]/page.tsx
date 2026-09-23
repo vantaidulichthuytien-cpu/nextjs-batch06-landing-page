@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -93,11 +94,13 @@ export default async function BlogPostPage({
       <main className="flex-1 bg-white">
         <section className="relative pt-16">
           <div className="relative h-[45vh] min-h-[320px] w-full overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={post.coverImage}
               alt={post.title}
-              className="h-full w-full object-cover"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent" />
             <div className="absolute inset-x-0 bottom-0">
@@ -183,13 +186,14 @@ export default async function BlogPostPage({
                 <Link
                   key={p.slug}
                   href={`/tin-tuc/${p.slug}`}
-                  className="group block overflow-hidden rounded-xl"
+                  className="group relative block h-40 w-full overflow-hidden rounded-xl"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={p.coverImage}
                     alt={p.title}
-                    className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <p className="mt-3 text-sm font-semibold text-slate-900 group-hover:text-blue-600">
                     {p.title}

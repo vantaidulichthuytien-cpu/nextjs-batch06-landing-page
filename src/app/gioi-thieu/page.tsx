@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BadgeCheck, Car, HeartHandshake, ShieldCheck } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -75,11 +76,13 @@ export default function AboutPage() {
       <main className="flex-1 bg-white">
         <section className="relative pt-16">
           <div className="relative h-[42vh] min-h-[300px] w-full overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/xe29cho.jpg"
               alt={SITE_NAME}
-              className="h-full w-full object-cover"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
             <div className="absolute inset-x-0 bottom-0">
@@ -185,11 +188,12 @@ export default function AboutPage() {
                     className="group block overflow-hidden rounded-2xl border border-slate-200 bg-white"
                   >
                     <div className="relative h-40 overflow-hidden">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src={v.image}
                         alt={v.name}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        fill
+                        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                     </div>
                     <div className="p-4">

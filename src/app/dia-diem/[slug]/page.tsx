@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MapPin, Phone, ArrowRight, ArrowLeft } from "lucide-react";
@@ -79,11 +80,13 @@ export default async function DestinationPage({
       <main className="flex-1 bg-white">
         <section className="relative pt-16">
           <div className="relative h-[50vh] min-h-[360px] w-full overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={destination.heroImage}
               alt={destination.name}
-              className="h-full w-full object-cover"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent" />
             <div className="absolute inset-x-0 bottom-0">
@@ -121,12 +124,15 @@ export default async function DestinationPage({
               </div>
               {section.image && (
                 <figure className="mt-6">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={section.image.src}
-                    alt={section.image.alt}
-                    className="h-72 w-full rounded-2xl object-cover sm:h-96"
-                  />
+                  <div className="relative h-72 w-full overflow-hidden rounded-2xl sm:h-96">
+                    <Image
+                      src={section.image.src}
+                      alt={section.image.alt}
+                      fill
+                      sizes="(min-width: 768px) 768px, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
                   <figcaption className="mt-2 text-center text-xs text-slate-400">
                     {section.image.alt}
                   </figcaption>
@@ -173,13 +179,14 @@ export default async function DestinationPage({
                 <Link
                   key={d.slug}
                   href={`/dia-diem/${d.slug}`}
-                  className="group relative overflow-hidden rounded-xl"
+                  className="group relative block h-32 w-full overflow-hidden rounded-xl"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={d.heroImage}
                     alt={d.name}
-                    className="h-32 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    fill
+                    sizes="(min-width: 640px) 25vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
                   <p className="absolute bottom-2 left-3 text-sm font-semibold text-white">
